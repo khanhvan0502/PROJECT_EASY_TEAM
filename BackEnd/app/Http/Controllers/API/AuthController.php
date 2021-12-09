@@ -67,7 +67,7 @@ class AuthController extends Controller
                     'message' => 'Invalid Credentials',
                 ]);
             } else {
-                if (strcmp($user->role_as, '1') == 0) {
+                if ($user->role_as == 1) {//strcmp($user->role_as, '1') == 0
                     $role = 'admin';
                     $token = $user->createToken($user->email . '_AdminToken', ['server:admin'])->plainTextToken;
                 } else {
@@ -77,7 +77,7 @@ class AuthController extends Controller
 
                 return response()->json([
                     'status' => 200,
-                    'username' => $user->name,
+                    'username' => $user->username,
                     'token' => $token,
                     'message' => 'Logged In Successfully',
                     'role' => $role,

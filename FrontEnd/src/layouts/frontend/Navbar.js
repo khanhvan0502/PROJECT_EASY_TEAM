@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import swal from 'sweetalert';
+import Search from "../../components/frontend/features/Search";
 
 function Navbar() {
 
@@ -47,7 +48,7 @@ function Navbar() {
         <div>
             <nav id="navbarExample" className="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
                 <div className="container">
-                    <Link className="navbar-brand logo-image" to="/"><img className="logotobig" src="images/logo_5000.png" alt="alternative" /></Link>
+                    <Link className="navbar-brand logo-image" to="/"><img className="logotobig" src="../../images/logo_5000.png" alt="ImageLogo" /></Link>
                     <button className="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
@@ -60,6 +61,22 @@ function Navbar() {
                                 <Link className="nav-link" to="/listquiz">Làm bài thi</Link>
                             </li>
                             <li className="nav-item">
+                                <a className="nav-link" href="#statistical">Thống kê</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#tips">Mẹo</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#faq">FAQ</a>
+                            </li>
+                            <Search />
+                            {/* <form className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0">
+                                <div className="input-group">
+                                    <input className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                    <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn" /></button>
+                                </div>
+                            </form> */}
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to="#pricing">Pricing</Link>
                             </li>
                             <li className="nav-item dropdown">
@@ -71,7 +88,7 @@ function Navbar() {
                                     <li><div className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="privacy.html">Privacy Policy</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
                         </ul>
                         {
                             AuthButtons

@@ -15,8 +15,8 @@ class Item extends Model
         'name',
         'slug',
         'description',
-        'image',
         'time',
+        'image',
         'status',
     ];
 

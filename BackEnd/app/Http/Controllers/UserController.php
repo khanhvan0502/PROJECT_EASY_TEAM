@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    private $status     =   200;
+    private $status = 200;
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +54,7 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'phone' => 'required',
             'role_as' => 'required',
-            
+
         ]);
 
         if ($validator->fails()) {
@@ -77,8 +77,6 @@ class UserController extends Controller
             ]);
         }
 
-        
-        
     }
 
     /**
@@ -122,7 +120,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         //update user
         $validator = Validator::make($request->all(), [
@@ -169,9 +167,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user  =  User::find($id);
+        $user = User::find($id);
         if (!is_null($user)) {
-            $delete_status      =       User::where("id", $id)->delete();
+            $delete_status = User::where("id", $id)->delete();
             if ($delete_status == 1) {
                 return response()->json(["status" => $this->status, "success" => true, "message" => "user record deleted successfully"]);
             } else {

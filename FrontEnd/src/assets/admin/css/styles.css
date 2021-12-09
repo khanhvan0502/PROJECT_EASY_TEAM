@@ -12263,3 +12263,22 @@ body {
   font-size: 14px;
   color: var(--user-count-color);
 }
+
+/* search */
+.search-input{
+  border: 1px solid #f25c05 !important;
+  color: #f25c05  !important;
+}
+
+.search-btn{
+  border: 1px solid #f25c05 !important;
+  color: #f25c05  !important;
+}
+
+.search-btn:hover{
+  background-color: #f25c05 !important;
+}
+
+.search-btn:hover .icon-btn{
+  color: #fff;
+}

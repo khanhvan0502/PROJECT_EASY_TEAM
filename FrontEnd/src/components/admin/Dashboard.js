@@ -9,7 +9,7 @@ function Dashboard() {
   });
   // category
   const [countCategory, setCountCategory] = useState("");
-  axios.get(`/api/all-category-quiz`).then((res) => {
+  axios.get(`/api/all-category-quizzes`).then((res) => {
     if (res.status === 200) {
       setCountCategory(res.data.length);
       console.log(res.data.length);
@@ -20,11 +20,11 @@ function Dashboard() {
   axios.get(`api/get-all-quiz`).then((res) => {
     if (res.status === 200) {
       setCountQuiz(res.data.length);
-      
+
     }
   });
 
-  
+
 
 
   return (

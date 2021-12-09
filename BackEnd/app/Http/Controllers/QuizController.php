@@ -17,6 +17,7 @@ class QuizController extends Controller
             'quizzes' => $quizzes,
         ]);
     }
+
     public function getAllQuizzes(){
         $quizzes =  Quiz::all();
         if(count($quizzes) > 0){
@@ -28,6 +29,7 @@ class QuizController extends Controller
             ]);
         }
     }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [

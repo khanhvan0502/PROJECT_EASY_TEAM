@@ -31,4 +31,12 @@ class CategoryQuiz extends Model
     {
         return $this->hasMany(Question::class, 'category_id', 'id');
     }
+    // use HasFactory;
+    // protected $table = 'categories';
+    // protected $fillable = [
+    //     'name',
+    //     'slug',
+    //     'description',
+    //     'status',
+    // ];
 }

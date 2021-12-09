@@ -18,17 +18,26 @@ class CategoryQuizController extends Controller
         ]);
     }
 
-    public function allcategory()
+    public function allcategies()
     {
-        $categoryquiz =  CategoryQuiz::all();
-        if(count($categoryquiz) > 0){
+        $categoryquiz = CategoryQuiz::all();
+        if (count($categoryquiz) > 0) {
             return response()->json($categoryquiz, 200);
-        }else{
+        } else {
             return response()->json([
                 'status' => 404,
                 'message' => 'No Quizzes Found',
             ]);
         }
+    }
+
+    public function allcategory()
+    {
+        $categoryquiz = CategoryQuiz::where('status', '0')->get();
+        return response()->json([
+            'status' => 200,
+            'category' => $categoryquiz,
+        ]);
     }
 
     public function edit($id)

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../layouts/frontend/Header';
 import Navbar from '../../layouts/frontend/Navbar';
 import ScrollButton from '../../layouts/frontend/ScrollButton';
+import Footer from '../../layouts/frontend/Footer';
 import ContentMenu from './ContentMenu/ContentMenu';
-import Footer from './Footer';
 
 class Home extends Component {
     render() {

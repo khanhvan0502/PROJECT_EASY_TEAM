@@ -58,9 +58,12 @@ function Navbar() {
                                 <Link className="nav-link" aria-current="page" to="/">Trang chủ</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/listquiz">Làm bài thi</Link>
+                                <Link className="nav-link" to="/ask-question">Đặt câu hỏi</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" to="/listquiz">Làm bài thi</Link>
+                            </li>
+                            {/* <li className="nav-item">
                                 <a className="nav-link" href="#statistical">Thống kê</a>
                             </li>
                             <li className="nav-item">
@@ -68,7 +71,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#faq">FAQ</a>
-                            </li>
+                            </li> */}
                             <Search />
                             {/* <form className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0">
                                 <div className="input-group">

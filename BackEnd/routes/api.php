@@ -5,8 +5,12 @@ use App\Http\Controllers\API\Search;
 use App\Http\Controllers\CategoryQuizController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\CategoryQuestionController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
@@ -30,7 +34,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('profile/delete/{id}', [UserController::class, 'destroy']);
     Route::put('profile/edit/{id}', [UserController::class, 'update']);
 
-// Cagegory Quiz
+    // Cagegory Quiz
     Route::get('view-category-quiz', [CategoryQuizController::class, 'index']);
     Route::post('store-category-quiz', [CategoryQuizController::class, 'store']);
     Route::get('edit-category-quiz/{id}', [CategoryQuizController::class, 'edit']);
@@ -39,15 +43,15 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('all-category-quiz', [CategoryQuizController::class, 'allcategory']);
     Route::get('all-category-quizzes', [CategoryQuizController::class, 'allcategies']);
 
-//Item Category
+    //Item Category
     Route::get('view-item-quiz', [ItemController::class, 'index']);
     Route::post('store-item-quiz', [ItemController::class, 'store']);
     Route::get('edit-item-quiz/{id}', [ItemController::class, 'edit']);
     Route::post('update-item-quiz/{id}', [ItemController::class, 'update']);
     Route::delete('delete-item-quiz/{id}', [ItemController::class, 'destroy']);
     Route::get('all-item-quiz', [ItemController::class, 'allitem']);
-
-// Quiz
+    
+    // Quiz
     Route::get('view-quiz', [QuizController::class, 'index']);
     Route::post('store-quiz', [QuizController::class, 'store']);
     Route::get('edit-quiz/{id}', [QuizController::class, 'edit']);
@@ -55,13 +59,33 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('delete-quiz/{id}', [QuizController::class, 'destroy']);
     Route::get('get-all-quiz', [QuizController::class, 'getAllQuizzes']);
     
+    
+    // Category Question
+    
+    
+    // Ask Question
+    
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
-
+    // Question
+    Route::post('store-question', [QuestionController::class, 'store']);
+    
     Route::post('logout', [AuthController::class, 'logout']);
+    
+    
+    // Category Question
 });
+Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
+Route::get('question/search/{name}', [QuestionController::class, 'search']);
+Route::get('question/{slug}', [QuestionController::class, 'show']);
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+
+Route::post('store-category-question', [CategoryQuestionController::class, 'store']);
+Route::get('get-all-category-question', [CategoryQuestionController::class, 'getAllCategoryQuestion']);
+
+
+// Tag
+Route::post('store-tag', [TagController::class, 'store']);
+Route::get('get-all-tag', [TagController::class, 'getAllTag']);
+

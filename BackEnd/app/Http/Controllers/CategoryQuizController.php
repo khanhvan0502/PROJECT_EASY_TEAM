@@ -63,6 +63,7 @@ class CategoryQuizController extends Controller
             'slug' => 'required|max:191',
             'description' => 'required|max:191',
         ]);
+        
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,

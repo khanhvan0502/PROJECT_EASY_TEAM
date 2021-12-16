@@ -78,7 +78,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
 Route::get('question/search/{name}', [QuestionController::class, 'search']);
-Route::get('question/{slug}', [QuestionController::class, 'show']);
+// Route::get('question/{slug}', [QuestionController::class, 'show']);
+Route::get('question/{slug}/', [QuestionController::class, 'show']);
 
 
 Route::post('store-category-question', [CategoryQuestionController::class, 'store']);

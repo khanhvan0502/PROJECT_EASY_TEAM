@@ -26,7 +26,7 @@ function ViewQuestion() {
           </div>
         </div>
       </header>
-      {/* <SearchQuestion/> */}
+      <SearchQuestion/>
       <div className="question-container">
         {question.map((item) => (
           <ItemQuestion key={item.id} question={item} />

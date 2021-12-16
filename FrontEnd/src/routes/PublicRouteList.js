@@ -10,6 +10,7 @@ import ViewQuiz from "../components/frontend/features/ViewQuiz";
 import Search from "../components/frontend/features/Search";
 import ViewQuestion from "../components/frontend/Question/ViewQuestion";
 import AskQuestion from "../components/frontend/Question/AskQuestion";
+import ContentQuestion from "../components/frontend/Question/ContentQuestion";
 
 const publicRoutesList = [
     { path: '/', exact: true, name: 'Home', component: Home },
@@ -24,6 +25,7 @@ const publicRoutesList = [
     { path: '/search', exact: true, name: 'Search', component: Search },
     { path: '/question', exact: true, name: 'Question', component: ViewQuestion },
     { path: '/ask-question', exact: true, name: 'AskQuestion', component: AskQuestion },
+    { path: '/question/:slug', exact: true, name: 'ContentQuestion', component: ContentQuestion },
 ];
 
 export default publicRoutesList;

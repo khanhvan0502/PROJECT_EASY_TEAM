@@ -95,11 +95,23 @@ class QuestionController extends Controller
     public function show($slug)
     {
         //
+        $data = [];
         $question = Question::where('slug', $slug)->first();
         $question->increment('views_couter');
         $question->save();
+        $data[] = $question;
         return response()->json([
-            'data' => $question->user_id, 
+            'data' => $data, 
+            'status' => 200,
+        ]);
+    }
+
+    public function showQuestion($slug){
+        $question = Question::where('slug',$slug)->first();
+        $question->increment('views_couter');
+        $question->save();
+        return response()->json([
+            'data' => $question->filter(), 
             'status' => 200,
         ]);
     }

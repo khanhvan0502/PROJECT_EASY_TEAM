@@ -59,7 +59,9 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     //News
     Route::get('view-news', [NewsController::class, 'index']);
     Route::post('store-news', [NewsController::class, 'store']);
-
+    Route::get('edit-news/{id}', [NewsController::class, 'edit']);
+    Route::put('update-news/{id}', [NewsController::class, 'update']);
+    Route::delete('delete-news/{id}', [NewsController::class, 'destroy']);
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

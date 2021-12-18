@@ -34,7 +34,7 @@ const routes = [
     { path: '/admin/edit-quiz/:id', exact: true, name: 'EditQuiz', component: EditQuiz },
     { path: '/admin/view-news', exact: true, name: 'ViewNews', component: ViewNews },
     { path: '/admin/add-news', exact: true, name: 'AddNews', component: AddNews },
-    { path: '/admin/edit-news', exact: true, name: 'EditNews', component: EditNews },
+    { path: '/admin/edit-news/:id', exact: true, name: 'EditNews', component: EditNews },
     
 
 ];

@@ -14,10 +14,16 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->integer('question_id');
-            $table->text('comment');
-            $table->integer('count_votes')->default(0);
+            $table->id();
+            $table->text('content');
+            $table->bigInteger('question_id')->nullable()->unsigned();
+            $table->bigInteger('user_id')->nullable()->unsigned();
+            $table->integer('count_votes')->nullable()->default(0);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+        });
+        Schema::table('comments', function($table) {
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('set null');
         });
     }
 
@@ -29,5 +35,6 @@ class CreateCommentsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('comments');
+        Schema::dropForeign(['question_id']);
     }
 }

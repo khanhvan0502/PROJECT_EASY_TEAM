@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Question;
 
 class CommentController extends Controller
 {
@@ -32,10 +35,34 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Question $question)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'content' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        }else{
+            $comment = new Comment;
+            $comment->content = $request->input('content');
+            $comment->user_id = auth('sanctum')->user()->id;
+            $comment->question_id = $question->id;
+            $comment->save();
+            return response()->json([
+                'status' => 200,
+                'data' => $comment,
+                'message' => 'Success to create new comment'
+            ]);
+        }
+        
+
+       
     }
+
+
 
     /**
      * Display the specified resource.

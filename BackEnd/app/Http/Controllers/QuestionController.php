@@ -106,15 +106,6 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function showQuestion($slug){
-        $question = Question::where('slug',$slug)->first();
-        $question->increment('views_couter');
-        $question->save();
-        return response()->json([
-            'data' => $question->filter(), 
-            'status' => 200,
-        ]);
-    }
 
     /**
      * Show the form for editing the specified resource.

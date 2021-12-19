@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.7.1",
     "countapi-js": "^1.0.2",
     "draft-js": "^0.11.7",
+    "jodit-react": "^1.1.15",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",

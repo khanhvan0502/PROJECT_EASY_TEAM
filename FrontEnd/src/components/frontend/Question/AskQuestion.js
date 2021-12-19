@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import Navbar from "../../../layouts/frontend/Navbar";
 import "./AskQuestion.css";
 import Footer from "../../../layouts/frontend/Footer";
@@ -7,6 +8,8 @@ import axios from "axios";
 import swal from "sweetalert";
 import AddTag from "../Tag/AddTag";
 function ViewQuestion() {
+
+
   const [categoryQuestionList, setCategoryQuestionList] = useState([]);
   const [tagList, setTagList] = useState([]);
   const history = useHistory();
@@ -73,7 +76,7 @@ function ViewQuestion() {
   const AddTag = (e) => {
     e.preventDefault();
     AddTag();
-  }
+  };
 
   return (
     <div>
@@ -148,22 +151,25 @@ function ViewQuestion() {
                 </b>
               </label>
               <div className="category-container">
-              <select
-                name="category_question_id"
-                onChange={handleInput}
-                value={questionInput.category_question_id}
-                className="form-control"
-              >
-                <option>Chọn danh mục</option>
-                {categoryQuestionList.map((item) => {
-                  return (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  );
-                })}
-              </select>
-              <button className="add-category-btn form-control-submit-button" onClick={AddTag1}>
+                <select
+                  name="category_question_id"
+                  onChange={handleInput}
+                  value={questionInput.category_question_id}
+                  className="form-control"
+                >
+                  <option>Chọn danh mục</option>
+                  {categoryQuestionList.map((item) => {
+                    return (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    );
+                  })}
+                </select>
+                <button
+                  className="add-category-btn form-control-submit-button"
+                  onClick={AddTag1}
+                >
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
@@ -180,6 +186,14 @@ function ViewQuestion() {
                 rows="3"
                 placeholder="Nội dung/Đoạn code"
               ></textarea>
+              {/* <JoditEditor
+                ref={editor}
+                value={content}
+                config={config}
+                tabIndex={1} // tabIndex of textarea
+                onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                onChange={(newContent) => {}}
+              /> */}
             </div>
             <p>Bạn có thể không nhập nội dung</p>
             {/* Create a tag*/}
@@ -211,7 +225,10 @@ function ViewQuestion() {
                     );
                   })}
                 </select>
-                <button className="add-tag-btn form-control-submit-button" onClick={AddTag}>
+                <button
+                  className="add-tag-btn form-control-submit-button"
+                  onClick={AddTag}
+                >
                   <i className="fas fa-plus"></i>
                 </button>
               </div>

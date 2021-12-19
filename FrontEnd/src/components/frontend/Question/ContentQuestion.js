@@ -4,9 +4,11 @@ import Footer from "../../../layouts/frontend/Footer";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
+import AddComment from "../Comment/AddComment";
 
 function ContentQuestion() {
   const [question, setQuestion] = useState([]);
+  const [test, setTest] = useState('');
   //   const question_slug = props.match.params.question_slug;
   const question_slug =
     useLocation().pathname.split("/")[
@@ -16,9 +18,13 @@ function ContentQuestion() {
     axios.get(`/api/question/${question_slug}`).then((res) => {
       if (res.data.status === 200) {
         setQuestion(res.data.data);
+        console.log(res.data.data);
       }
     });
   }, []);
+
+ 
+
 
   
   var showQuestionList = "";
@@ -40,7 +46,9 @@ function ContentQuestion() {
               <div className="votes-box">
                 <i className="fa fas fa-heart"></i>
               </div>
+              <div className="votes-box-title">
               <h6>{item.votes_couter} Votes</h6>
+              </div>
             </div>
             <div className="username-box">
               <h6>Được hỏi bởi: {item.user.username}</h6>
@@ -85,17 +93,7 @@ function ContentQuestion() {
           </div>
           <hr></hr>
         </div>
-        <div className="comment-container">
-          <h6>Trả lời câu hỏi</h6>
-          <div className="comment-box">
-            <div className="comment-box-input">
-              <textarea className="box-input">
-                
-              </textarea>
-              
-            </div>
-          </div>
-        </div>
+        {/* <AddComment/> */}
       </div>
     );
   });

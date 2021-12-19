@@ -9,18 +9,19 @@ class Comment extends Model
 {
     use HasFactory;
     protected $table = 'comments';
-    protected $fillable = ['question_id', 'comments'];
-    // public $timestamps = false;
+    protected $fillable = ["question_id", "content"];
+    protected $with = ['user'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function question()
     {
         return $this->belongsTo(Question::class);
     }
-
-    public function user()
+    public function vote()
     {
-        return $this->belongsTo(User::class);
-    }
-    public function vote(){
         return $this->hasMany(Vote::class);
     }
 }

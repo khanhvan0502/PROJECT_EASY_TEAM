@@ -8,7 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryQuestionController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +70,9 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 Route::middleware(['auth:sanctum'])->group(function () {
     // Question
     Route::post('store-question', [QuestionController::class, 'store']);
+    // Comment
+    Route::post('store-comment', [CommentController::class, 'store']);
+    
     
     Route::post('logout', [AuthController::class, 'logout']);
     
@@ -89,4 +92,6 @@ Route::get('get-all-category-question', [CategoryQuestionController::class, 'get
 // Tag
 Route::post('store-tag', [TagController::class, 'store']);
 Route::get('get-all-tag', [TagController::class, 'getAllTag']);
+
+// Comment
 

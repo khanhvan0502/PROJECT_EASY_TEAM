@@ -1,4 +1,4 @@
-.content-question-container{
+.content-question-container, .comment-container{
     margin-left: auto;
     margin-right: auto;
     width: 800px;
@@ -17,6 +17,7 @@
 .vote-box-content{
     width: 100px;
     height: 100px;
+    
 }
 .votes-box{
     width: 60px;
@@ -25,7 +26,14 @@
     border: 1px solid black;
     position: relative;
     font-size: 30px;
+    top: 20px;
+    left: 20px;
 }
+.votes-box-title{
+    margin-top: 20px;
+    text-align: center;
+}
+
 .votes-box:hover{
     border-radius: 50%;
     border: 1px solid #f25c05;
@@ -33,14 +41,12 @@
     color: #f25c05;
     cursor: pointer;
 }
-.vote-box i{
+.votes-box i{
     position: absolute;
     left: 15px;
     top: 15px;
 }
-.vote-box-content h6{
-    text-align: center;
-}
+
 .username-box, .time-box, .category-box{
     margin-right: 30px;
 }
@@ -112,4 +118,8 @@
     border-radius: 5px;
     padding: 30px;
     margin-bottom: 20px;
+}
+.comment-box textarea{
+    height: 200px;
+    width: 800px;
 }

@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\Search;
-use App\Http\Controllers\CategoryQuizController;
-use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\NewsItemController;
+use App\Http\Controllers\CategoryQuizController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -62,6 +63,12 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('edit-news/{id}', [NewsController::class, 'edit']);
     Route::put('update-news/{id}', [NewsController::class, 'update']);
     Route::delete('delete-news/{id}', [NewsController::class, 'destroy']);
+    Route::get('all-news', [NewsController::class, 'allnews']);
+    
+    //NewsItem
+    Route::post('store-newsitem', [NewsItemController::class, 'store']);
+    Route::get('view-news-item', [NewsItemController::class, 'index']);
+
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

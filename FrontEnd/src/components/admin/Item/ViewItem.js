@@ -20,7 +20,7 @@ function ViewItem() {
         })
 
     }, []);
-
+    
     const deleteItemQuiz = (e, id) => {
         e.preventDefault();
 

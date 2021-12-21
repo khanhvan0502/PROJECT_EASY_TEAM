@@ -14,6 +14,9 @@ import EditQuiz from '../components/admin/Quiz/EditQuiz';
 import ViewNews from '../components/admin/News/ViewNews';
 import AddNews from '../components/admin/News/AddNews';
 import EditNews from '../components/admin/News/EditNews';
+import ViewNewsItem from '../components/admin/NewsItem/ViewNewsItem';
+import AddNewsItem from '../components/admin/NewsItem/AddNewsItem';
+// import EditNewsItem from '../components/admin/NewsItem/EditNewsItem';
 
 
 
@@ -35,7 +38,9 @@ const routes = [
     { path: '/admin/view-news', exact: true, name: 'ViewNews', component: ViewNews },
     { path: '/admin/add-news', exact: true, name: 'AddNews', component: AddNews },
     { path: '/admin/edit-news/:id', exact: true, name: 'EditNews', component: EditNews },
-    
+    { path: '/admin/view-news-item', exact: true, name: 'ViewNewsItem', component: ViewNewsItem },
+    { path: '/admin/add-news-item', exact: true, name: 'AddNewsItem', component: AddNewsItem },
+
 
 ];
 

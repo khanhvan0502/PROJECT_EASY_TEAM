@@ -111,10 +111,45 @@ const Sidebar = () => {
             </nav>
           </div>
           {/* ------------------------------------------------------ */}
+
+          {/* Quản lý danh mục tin tức */}
           {/* --------------------------------------------------------------------- */}
           <Link className="nav-link collapse" to="#"
             data-toggle="collapse"
             data-target="#collapseNews"
+            aria-expanded="false"
+            aria-controls="collapseLayouts"
+          >
+            <div className="sb-nav-link-icon">
+              <i className="fas fa-columns" />
+            </div>
+            Quản lý danh mục tin tức
+            <div className="sb-sidenav-collapse-arrow">
+              <i className="fas fa-angle-down" />
+            </div>
+          </Link>
+          <div
+            className="collapse"
+            id="collapseNews"
+            aria-labelledby="headingOne"
+            data-bs-parent="#sidenavAccordion"
+          >
+            <nav className="sb-sidenav-menu-nested nav">
+              <Link className="nav-link" to="/admin/view-news">
+                Xem danh mục tin tức
+              </Link>
+              <Link className="nav-link" to="/admin/add-news">
+                Thêm danh mục tin tức
+              </Link>
+            </nav>
+          </div>
+          {/* ------------------------------------------------------ */}
+
+          {/* Quản lý tin tức */}
+          {/* --------------------------------------------------------------------- */}
+          <Link className="nav-link collapse" to="#"
+            data-toggle="collapse"
+            data-target="#collapseNewsItem"
             aria-expanded="false"
             aria-controls="collapseLayouts"
           >
@@ -128,15 +163,15 @@ const Sidebar = () => {
           </Link>
           <div
             className="collapse"
-            id="collapseNews"
+            id="collapseNewsItem"
             aria-labelledby="headingOne"
             data-bs-parent="#sidenavAccordion"
           >
             <nav className="sb-sidenav-menu-nested nav">
-              <Link className="nav-link" to="/admin/view-news">
+              <Link className="nav-link" to="/admin/view-news-item">
                 Xem tin tức
               </Link>
-              <Link className="nav-link" to="/admin/add-news">
+              <Link className="nav-link" to="/admin/add-news-item">
                 Thêm tin tức
               </Link>
             </nav>

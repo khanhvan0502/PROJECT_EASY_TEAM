@@ -19,6 +19,15 @@ class NewsController extends Controller
         ]);
     }
 
+    public function allnews()
+    {
+        $news = News::where('status', '0')->get();
+        return response()->json([
+            'status' => 200,
+            'news' => $news,
+        ]);
+    }
+
     public function edit($id)
     {
         $news = News::find($id);

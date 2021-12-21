@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class Search extends Controller
 {
-    public function searchl($key)
+    public function search($key)
     {
         $categoryQuiz = CategoryQuiz::where('name', 'Like', "%$key%")->where('status', '0')->first();
         if ($categoryQuiz) {
@@ -40,7 +40,7 @@ class Search extends Controller
         }
     }
 
-    function search( Request $req ){
+    function searchl( Request $req ){
         return $req->input();
     }
 }

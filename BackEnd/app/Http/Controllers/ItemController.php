@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
-
 class ItemController extends Controller
 {
     public function index()
@@ -22,7 +21,7 @@ class ItemController extends Controller
 
     public function allitem()
     {
-        $items = Item::where('status','0')->get();
+        $items = Item::where('status', '0')->get();
         return response()->json([
             'status' => 200,
             'items' => $items,
@@ -52,6 +51,7 @@ class ItemController extends Controller
             $item->slug = $request->input('slug');
             $item->description = $request->input('description');
             $item->time = $request->input('time');
+
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();

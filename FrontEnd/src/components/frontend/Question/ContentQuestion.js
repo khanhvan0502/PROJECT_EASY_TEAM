@@ -5,11 +5,11 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
 import AddComment from "../Comment/AddComment";
-
+import ItemComment from '../Comment/ItemComment';
+import ViewComment from "../Comment/ViewComment";
 function ContentQuestion() {
   const [question, setQuestion] = useState([]);
-  const [test, setTest] = useState('');
-  //   const question_slug = props.match.params.question_slug;
+  const [id, setId] = useState('');
   const question_slug =
     useLocation().pathname.split("/")[
       useLocation().pathname.split("/").length - 1
@@ -18,18 +18,12 @@ function ContentQuestion() {
     axios.get(`/api/question/${question_slug}`).then((res) => {
       if (res.data.status === 200) {
         setQuestion(res.data.data);
-        console.log(res.data.data);
+        setId(res.data.id);
       }
     });
   }, []);
-
- 
-
-
   
   var showQuestionList = "";
-  //  const questionList = Object.values(question)
-  console.log(question);
   showQuestionList = question.map((item) => {
     return (
       <div className="content-question-container">
@@ -77,10 +71,15 @@ function ContentQuestion() {
                 lời
               </h6>
             </div>
+            <div className="view-count">
+              <h6>
+                <i className="fa fa-eye"></i> {item.views_couter} lượt xem
+              </h6>
+            </div>
             <div className="vote-count">
               <h6>
                 <i className="fa fa-heart"></i>
-                {item.views_couter} lượt xem
+                {item.votes_couter} lượt bình chọn
               </h6>
             </div>
             <button className="question-btn-answer">Trả lời câu hỏi</button>
@@ -93,7 +92,10 @@ function ContentQuestion() {
           </div>
           <hr></hr>
         </div>
-        {/* <AddComment/> */}
+        <h4 style={{marginLeft:"273px"}}>Câu trả lời</h4>
+
+      <ViewComment questionId={item.id} />
+        <AddComment questionId={item.id}/>
       </div>
     );
   });
@@ -109,7 +111,9 @@ function ContentQuestion() {
         </div>
       </header>
       {showQuestionList}
+      
 
+    
       <Footer />
     </div>
   );

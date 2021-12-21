@@ -73,16 +73,16 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // Comment
     Route::post('store-comment', [CommentController::class, 'store']);
     
-    
     Route::post('logout', [AuthController::class, 'logout']);
     
     
     // Category Question
 });
+
 Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
 Route::get('question/search/{name}', [QuestionController::class, 'search']);
-// Route::get('question/{slug}', [QuestionController::class, 'show']);
 Route::get('question/{slug}/', [QuestionController::class, 'show']);
+Route::get('hot-question', [QuestionController::class, 'mostView']);
 
 
 Route::post('store-category-question', [CategoryQuestionController::class, 'store']);
@@ -94,4 +94,4 @@ Route::post('store-tag', [TagController::class, 'store']);
 Route::get('get-all-tag', [TagController::class, 'getAllTag']);
 
 // Comment
-
+Route::get('all-comment/{id}', [CommentController::class, 'getCommentById']);

@@ -62,7 +62,7 @@ function ItemQuestion({
             <p>{tags.name}</p>
           </div>
           <div className="info-box">
-            <i className="fas fa-stream">{category_question.name}</i>
+            <i className="fas fa-folder-open">{category_question.name}</i>
             <i className="fas fa-user">{user.username}</i>
             <i className="fas fa-calendar-alt">
               asked {moment(created_at).fromNow(true)} ago

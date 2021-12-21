@@ -35,7 +35,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Question $question)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'content' => 'required',
@@ -49,7 +49,7 @@ class CommentController extends Controller
             $comment = new Comment;
             $comment->content = $request->input('content');
             $comment->user_id = auth('sanctum')->user()->id;
-            $comment->question_id = $question->id;
+            $comment->question_id = $request->input('question_id');
             $comment->save();
             return response()->json([
                 'status' => 200,
@@ -61,6 +61,23 @@ class CommentController extends Controller
 
        
     }
+
+    /**
+     * Display the comment for each question
+     * 
+     * @param int $id
+     * @return Response
+     */ 
+    public function getCommentById($id){
+        $question = Question::where('id', $id)->first();
+        $comments = Comment::where('question_id', $question->id)->get();
+        return response()->json([
+            'status' => 200,
+            'data' => $comments,
+            'message' => 'Success to get comment'
+        ]);
+    }
+    
 
 
 

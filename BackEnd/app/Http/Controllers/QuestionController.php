@@ -36,6 +36,16 @@ class QuestionController extends Controller
         ]);
     }
 
+    public function mostView(){
+        $questions = Question::orderBy('views_couter', 'desc')->get();
+
+        return response()->json([
+            'status' => 400,
+            'data' => $questions,
+            'message' => 'Success to get all category question'
+        ]);
+    }
+
 
 
     /**
@@ -86,6 +96,7 @@ class QuestionController extends Controller
         }
     }
 
+    
     /**
      * Display the specified resource.
      *
@@ -101,10 +112,28 @@ class QuestionController extends Controller
         $question->save();
         $data[] = $question;
         return response()->json([
-            'data' => $data, 
+            'data' => $data,
+            'id' => $question->id,
             'status' => 200,
         ]);
     }
+
+
+    public function votes($id)
+    {
+        $question = Question::find($id);
+        $question->increment('votes_couter');
+        $question->save();
+        return response()->json([
+            'status' => 200,
+            'message' => 'Success to vote',
+            'data' => $question,
+        ]);
+    }
+
+
+
+
 
 
     /**

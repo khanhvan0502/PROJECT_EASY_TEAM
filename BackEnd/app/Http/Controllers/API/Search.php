@@ -40,7 +40,13 @@ class Search extends Controller
         }
     }
 
+<<<<<<< HEAD
     // function searchl( Request $req ){
     //     return $req->input();
     // }
+=======
+    function searchl( Request $req ){
+        return $req->input();
+    }
+>>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
 }

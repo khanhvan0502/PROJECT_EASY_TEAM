@@ -58,7 +58,6 @@ function AddCategoryQuiz() {
 
     return (
         <div className="container-fluid px-4">
-
             {
                 display_errors.map((item, key) => {
                     return (

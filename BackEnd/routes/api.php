@@ -1,14 +1,20 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\API\AuthController;
+=======
+>>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
 use App\Http\Controllers\API\Search;
-use App\Http\Controllers\CategoryQuizController;
-use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\NewsItemController;
+use App\Http\Controllers\CategoryQuizController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -34,7 +40,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('profile/delete/{id}', [UserController::class, 'destroy']);
     Route::put('profile/edit/{id}', [UserController::class, 'update']);
 
-// Cagegory Quiz
+    // Cagegory Quiz
     Route::get('view-category-quiz', [CategoryQuizController::class, 'index']);
     Route::post('store-category-quiz', [CategoryQuizController::class, 'store']);
     Route::get('edit-category-quiz/{id}', [CategoryQuizController::class, 'edit']);
@@ -59,6 +65,21 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('delete-quiz/{id}', [QuizController::class, 'destroy']);
     Route::get('get-all-quiz', [QuizController::class, 'getAllQuizzes']);
 
+<<<<<<< HEAD
+=======
+    //News
+    Route::get('view-news', [NewsController::class, 'index']);
+    Route::post('store-news', [NewsController::class, 'store']);
+    Route::get('edit-news/{id}', [NewsController::class, 'edit']);
+    Route::put('update-news/{id}', [NewsController::class, 'update']);
+    Route::delete('delete-news/{id}', [NewsController::class, 'destroy']);
+    Route::get('all-news', [NewsController::class, 'allnews']);
+    
+    //NewsItem
+    Route::post('store-newsitem', [NewsItemController::class, 'store']);
+    Route::get('view-news-item', [NewsItemController::class, 'index']);
+
+>>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

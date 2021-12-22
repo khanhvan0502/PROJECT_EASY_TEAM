@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\Search;
 use App\Http\Controllers\CategoryQuizController;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+Route::post('answer', [AnswerController::class, 'addanswer']);
+Route::get('get-answer', [AnswerController::class, 'answer']);
 
 Route::get('get-category-quiz', [FrontendController::class, 'category']);
 Route::get('fetch-items-quiz/{slug}', [FrontendController::class, 'item']);
@@ -39,7 +43,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('all-category-quiz', [CategoryQuizController::class, 'allcategory']);
     Route::get('all-category-quizzes', [CategoryQuizController::class, 'allcategies']);
 
-//Item Category
+    //Item Category
     Route::get('view-item-quiz', [ItemController::class, 'index']);
     Route::post('store-item-quiz', [ItemController::class, 'store']);
     Route::get('edit-item-quiz/{id}', [ItemController::class, 'edit']);
@@ -47,19 +51,20 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('delete-item-quiz/{id}', [ItemController::class, 'destroy']);
     Route::get('all-item-quiz', [ItemController::class, 'allitem']);
 
-// Quiz
+    // Quiz
     Route::get('view-quiz', [QuizController::class, 'index']);
     Route::post('store-quiz', [QuizController::class, 'store']);
     Route::get('edit-quiz/{id}', [QuizController::class, 'edit']);
     Route::post('update-quiz/{id}', [QuizController::class, 'update']);
     Route::delete('delete-quiz/{id}', [QuizController::class, 'destroy']);
     Route::get('get-all-quiz', [QuizController::class, 'getAllQuizzes']);
-    
+
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout']);
+
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

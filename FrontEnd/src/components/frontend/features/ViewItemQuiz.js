@@ -13,6 +13,7 @@ function ViewItemQuiz(props) {
     const [category, setCategory] = useState([]);
 
     const itemCount = item.length;
+    console.log(item);
 
     useEffect(() => {
 

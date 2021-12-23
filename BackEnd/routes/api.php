@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\AnswerController;
-use App\Http\Controllers\API\AuthController;
-=======
->>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
+
 use App\Http\Controllers\API\Search;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
@@ -65,8 +62,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('delete-quiz/{id}', [QuizController::class, 'destroy']);
     Route::get('get-all-quiz', [QuizController::class, 'getAllQuizzes']);
 
-<<<<<<< HEAD
-=======
+
     //News
     Route::get('view-news', [NewsController::class, 'index']);
     Route::post('store-news', [NewsController::class, 'store']);
@@ -79,7 +75,6 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::post('store-newsitem', [NewsItemController::class, 'store']);
     Route::get('view-news-item', [NewsItemController::class, 'index']);
 
->>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

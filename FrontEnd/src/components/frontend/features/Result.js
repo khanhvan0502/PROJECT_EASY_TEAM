@@ -52,6 +52,16 @@ function GetCorrectById(dataquiz, id_choice) {
     return correct;
 }
 
+function GetQuestiontById(dataquiz, id_choice) {
+    const question = [];
+    for (let i = 0; i < dataquiz.length; i++) {
+        if (dataquiz[i].item_id === id_choice) {
+            question.push(dataquiz[i].question);
+        }
+    }
+    return question;
+}
+
 function Result() {
 
     const history = useHistory();
@@ -63,6 +73,7 @@ function Result() {
     const [choice, setChoice] = useState([]);
     const [idchoice, setIdChoice] = useState([]);
     const [userName, setUserName] = useState([]);
+    const [question, setQuestion] = useState([]);
     // const id_item_answer = GetIdChoice(idchoice);
 
     if (!localStorage.getItem('auth_token')) {
@@ -109,6 +120,8 @@ function Result() {
     useEffect(() => {
         setQuizId(quiz.map(item => item.item_id));
 
+        setQuestion(GetQuestiontById(quiz, GetIdChoice(idchoice)));
+
         setIdChoice(answer.map((item) => item.item_id));
 
         setCorrect(GetCorrectById(quiz, GetIdChoice(idchoice)));
@@ -116,7 +129,6 @@ function Result() {
         setChoice(answer.map(item => item.quiz_choice));
 
         setUserName(answer.map(item => item.users.username));
-
 
     }, [quiz, answer]);
 
@@ -136,13 +148,39 @@ function Result() {
         return (result / length) * 100;
     }
 
-
-
     // console.log(GetIdChoice(idchoice));
     // console.log(GetIdItem(quizId));
-    // console.log(correct);
-    // console.log(choiceNew);
+    console.log(question);
+    console.log(choiceNew);
 
+    // Phần Modal
+    const showFormAnswer = () => {
+        return (
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                                    </div>
+                                    <div className="modal-body">
+                                        ...
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div>
@@ -160,14 +198,17 @@ function Result() {
                 <div className="row">
                     <div className="col"></div>
                     <div className="col-4 mx-auto">
-                        <div className="card" style={{ width: '18rem' }}>
+                        <div className="card" style={{ width: '22rem' }}>
                             <div className="card-body">
                                 <p className="text-center fw-normal">Chào <strong>{GetUserName(userName)}</strong> !</p>
-                                <p className="text-center fw-normal">Điểm: <strong>{result} / {correct.length}</strong></p>
+                                <p className="text-center fw-normal">Số câu đúng: <strong>{result} / {correct.length}</strong></p>
                                 <p className="text-center fw-normal">Phần trăm: <strong>{percent(result, correct.length)}%</strong></p>
                                 <div className="row">
                                     <div className="col-1"></div>
-                                    <button href="#" className="col btn btn-primary rounded-end">Đáp án</button>
+                                    {/* {showButton()} */}
+                                    <button type="button" className="col btn btn-primary rounded-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Đáp án
+                                    </button>
                                     <div className="col-1"></div>
                                     <Link to="/listquiz" className="col btn btn-primary rounded-start">Làm lại</Link>
                                     <div className="col-1"></div>
@@ -178,6 +219,10 @@ function Result() {
                     <div className="col"></div>
                 </div>
             </div>
+
+
+            {showFormAnswer()}
+
         </div>
     )
 }

@@ -14,13 +14,7 @@ function Search() {
         }
     }
 
-<<<<<<< HEAD
     const datanew = Object.values(data);
-
-    return (
-        // <div>
-=======
-    const dataNew = Object.values(data);
 
     return (
         // <div>
@@ -33,8 +27,6 @@ function Search() {
         //             </div>
         //         </div>
         //     </header>
-
->>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
         //     <form action="/search" className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0">
         //         <div className="input-group">
         //             <input name="query" className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
@@ -43,14 +35,6 @@ function Search() {
         //     </form>
         // </div>
         <div>
-<<<<<<< HEAD
-            <form className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0">
-                <div className="input-group">
-                    <input onChange={(e) => search(e.target.value)} className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    {
-                        // data.length>0?{
-                        datanew.map((item) =>
-=======
             <header className="ex-header">
                 <div className="container">
                     <div className="row">
@@ -62,41 +46,35 @@ function Search() {
             </header>
 
             <div className='container'>
-                {/* <form className="d-none d-md-inline-block form-inline ms-auto my-2 my-md-0"> */}
-                    <div className="input-group">
-                        <input onChange={(e) => search(e.target.value)} className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                        <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn"/></button>
-                    </div>
-                {/* </form> */}
+
+                <div className="input-group">
+                    <input onChange={(e) => search(e.target.value)} className="form-control search-input" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn" /></button>
+                </div>
+
                 <div>
                     {
                         // data.length>0?{
-                        dataNew.map((item) =>
->>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
-                            <div className="col-md-3" key={item.id}>
-                                <div className="card">
-                                    <img src={php} style={{ width: '100%', height: '280px' }} alt={item.name} />
-                                    <hr />
-                                    <div className="card-body">
-                                        <h5 className="card-title text-center">{item.name}</h5>
-                                        <p className="card-text">{item.description}</p>
+                        datanew.map((item) => {
+                            return (
+                                <div className="col-md-3" key={item.id}>
+                                    <div className="card">
+                                        <img src={php} style={{ width: '100%', height: '280px' }} alt={item.name} />
+                                        <hr />
+                                        <div className="card-body">
+                                            <h5 className="card-title text-center">{item.name}</h5>
+                                            <p className="card-text">{item.description}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                        // }:<h2> Search</h2>"null";
+                            )
+                            // }:<h2> Search</h2>"null";
+                        })
                     }
-<<<<<<< HEAD
-                    {/* <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn" /></button> */}
-                </div>
-            </form>
-        </div>
-=======
+                    {/* <button className="btn search-btn" id="btnNavbarSearch" type="button"><i className="fas fa-search icon-btn" /></button>  */}
                 </div>
             </div>
-        </div >
->>>>>>> 64bfc5c6d74eed081e68c2a13e8f954e47185b46
-    );
+        </div>
+    )
 }
-
 export default Search;

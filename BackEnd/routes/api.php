@@ -9,18 +9,16 @@ use App\Http\Controllers\ItemController;
 
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\QuizController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsItemController;
 use App\Http\Controllers\CategoryQuizController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryQuestionController;
 use App\Http\Controllers\TagController;
-use Illuminate\Support\Facades\Route;
+
 
 
 Route::post('register', [AuthController::class, 'register']);

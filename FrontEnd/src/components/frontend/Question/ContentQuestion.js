@@ -5,11 +5,11 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
 import AddComment from "../Comment/AddComment";
-import ItemComment from '../Comment/ItemComment';
 import ViewComment from "../Comment/ViewComment";
+import { Link } from "react-router-dom";
 function ContentQuestion() {
   const [question, setQuestion] = useState([]);
-  const [id, setId] = useState('');
+  const [questionId, setQuestionId] = useState("");
   const question_slug =
     useLocation().pathname.split("/")[
       useLocation().pathname.split("/").length - 1
@@ -18,31 +18,51 @@ function ContentQuestion() {
     axios.get(`/api/question/${question_slug}`).then((res) => {
       if (res.data.status === 200) {
         setQuestion(res.data.data);
-        setId(res.data.id);
+        setQuestionId(res.data.id);
       }
     });
   }, []);
-  
-  var showQuestionList = "";
-  showQuestionList = question.map((item) => {
+
+  const votes = (e) => {
+    e.preventDefault();
+    axios
+      .post(`/api/question/save-votes`, { question_id: questionId })
+      .then((res) => {
+        window.location.reload();
+      });
+  };
+
+  var showQuestion = "";
+  showQuestion = question.map((item) => {
     return (
       <div className="content-question-container">
         <div
           className="breadcrumb"
           style={{ backgroundColor: "#fff", padding: "20px" }}
         >
-          <i className="fa fas fa-home">Trang chủ / Câu hỏi / Q {item.id}</i>
+          <i className="fa fas fa-home">
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <b>Trang chủ</b>{" "}
+            </Link>
+            /
+            <b>
+              {" "}
+              <Link to="/question" style={{ textDecoration: "none", color: "black" }}>Câu hỏi</Link> / Q {item.id}
+            </b>{" "}
+          </i>
         </div>
         <hr></hr>
         <div className="main-content">
           <div className="info-box">
             <div className="vote-box-content">
-              <div className="votes-box">
-                <i className="fa fas fa-heart"></i>
-              </div>
-              <div className="votes-box-title">
-              <h6>{item.votes_couter} Votes</h6>
-              </div>
+              <form onSubmit={votes} encType="multipart/form-data">
+                <button className="votes-box">
+                  <i className="fa fas fa-heart"></i>
+                </button>
+                <div className="votes-box-title">
+                  <h6>{item.votes_couter} Votes</h6>
+                </div>
+              </form>
             </div>
             <div className="username-box">
               <h6>Được hỏi bởi: {item.user.username}</h6>
@@ -62,7 +82,13 @@ function ContentQuestion() {
           </div>
           <div className="tag-question">
             <h6 style={{ marginRight: "60px" }}>Tags:</h6>
+            <Link
+            style={{ textDecoration: "none" }}
+            to={`/question/tag/${item.tags.id}`}
+            >
             <p>{item.tags.name}</p>
+            </Link>
+            
           </div>
           <div className="question-footer">
             <div className="answer-count">
@@ -92,10 +118,10 @@ function ContentQuestion() {
           </div>
           <hr></hr>
         </div>
-        <h4 style={{marginLeft:"273px"}}>Câu trả lời</h4>
+        <h4>Bình luận gần đây</h4>
 
-      <ViewComment questionId={item.id} />
-        <AddComment questionId={item.id}/>
+        <ViewComment questionId={item.id} />
+        <AddComment questionId={item.id} />
       </div>
     );
   });
@@ -110,10 +136,8 @@ function ContentQuestion() {
           </div>
         </div>
       </header>
-      {showQuestionList}
-      
+      {showQuestion}
 
-    
       <Footer />
     </div>
   );

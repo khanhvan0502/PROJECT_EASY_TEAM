@@ -7,11 +7,8 @@
     display: inline;;
     
 }
-.comment-votes{
-
-    width: 100px;
-    /* border: 1px solid #000000; */
-    text-align: center;
+.comment-votes .comment-votes-box:hover{
+    color: #f25c05;
 }
 .comment-votes-box{
     width: 50px;

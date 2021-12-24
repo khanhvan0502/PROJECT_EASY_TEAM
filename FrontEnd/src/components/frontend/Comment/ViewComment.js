@@ -4,14 +4,25 @@ import ItemComment from "./ItemComment";
 function ViewComment({ questionId }) {
   console.log(questionId);
   const [comment, setComment] = useState([]);
+  const [countComment, setCountComment] = useState(0);
+  const countCommentInput = {
+    question_id: questionId,
+    comments_couter: countComment,
+  };
+
   useEffect(() => {
     axios.get(`/api/all-comment/${questionId}`).then((res) => {
       setComment(res.data.data);
+      setCountComment(res.data.data.length);
     });
   }, []);
-  console.log("Comment data:", comment);
+
+  axios
+    .post(`/api/question/save-comments-couter`, countCommentInput)
+    .then((res) => {
+    });
   return (
-    <div>
+    <div style={{marginBottom:"30px"}}>
       {comment.map((item) => (
         <ItemComment key={item.id} comment={item} />
       ))}

@@ -1,9 +1,11 @@
-import React, { useState, useHistory } from "react";
+import React, { useState } from "react";
 import swal from "sweetalert";
+import {useHistory} from 'react-router-dom'
 import "../Question/ContentQuestion.css";
 import axios from "axios";
 
 function AddComment({ questionId}) {
+  const history = useHistory();
   console.log(questionId);
   const [commentInput, setCommentInput] = useState({
     question_id: questionId,
@@ -28,6 +30,8 @@ function AddComment({ questionId}) {
             setErrorList([]);
             window.location.reload();
           } else {
+            swal("Error!", "Please login to add comment!", "error");
+            history.push("/login");
             setErrorList(res.data.errors);
           }
         });
@@ -37,7 +41,7 @@ function AddComment({ questionId}) {
   return (
     <div className="comment-container">
       <div className="leave-comment">
-        <h4>Leave a comment</h4>
+        <h4>Bình luận của bạn</h4>
       </div>
       <form encType="multipart/form-data" onSubmit={submitComment}>
         <div className="form-group" >

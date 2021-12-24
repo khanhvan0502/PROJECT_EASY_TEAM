@@ -71,6 +71,15 @@ class TagController extends Controller
     }
 
     /**
+     * Find all the questions with the tag
+     * 
+     */
+
+
+   
+
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

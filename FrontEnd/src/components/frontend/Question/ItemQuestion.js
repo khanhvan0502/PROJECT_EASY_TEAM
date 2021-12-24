@@ -24,7 +24,7 @@ function ItemQuestion({
   //     console.log(res.data);
   //   });
   // }, []);
-  
+
   return (
     <>
       <hr style={{ width: "1000px", marginLeft: "50px" }}></hr>
@@ -51,19 +51,37 @@ function ItemQuestion({
         <div className="main-box">
           <div className="question-box">
             <h3>
-              <Link 
-              style={{ textDecoration: "none", 
-                             color:"#f25c05" }} to={`/question/${slug}`}>
+              <Link
+                style={{ textDecoration: "none", color: "#f25c05" }}
+                to={`/question/${slug}`}
+              >
                 {title}
               </Link>
             </h3>
           </div>
           <div className="tag-box">
-            <p>{tags.name}</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/question/tag/${tags.id}`}
+            >
+              <p>{tags.name}</p>
+            </Link>
           </div>
           <div className="info-box">
-            <i className="fas fa-folder-open">{category_question.name}</i>
-            <i className="fas fa-user">{user.username}</i>
+            <i className="fas fa-folder-open">
+              <Link
+                style={{ textDecoration: "none", color: "#f25c05" }}
+                to={`question/category/${category_question.id}`}
+              >
+                {category_question.name}
+              </Link>
+            </i>
+            <i className="fas fa-user">
+              <Link style={{ textDecoration: "none", color: "#f25c05" }}
+                to={`user/${user.username}`}>
+              {user.username}
+              </Link>
+             </i>
             <i className="fas fa-calendar-alt">
               asked {moment(created_at).fromNow(true)} ago
             </i>

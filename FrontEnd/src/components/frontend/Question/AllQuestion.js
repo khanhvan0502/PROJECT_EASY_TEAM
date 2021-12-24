@@ -6,10 +6,12 @@ import Footer from "../../../layouts/frontend/Footer";
 
 import { Link } from "react-router-dom";
 import "./AllQuestion.css";
+import SearchQuestion from "./SearchQuestion";
 const AllQuestion = () => {
   return (
     <div>
       <Navbar />
+      
       <header className="ex-header">
         <div className="container">
           <div className="row">
@@ -19,6 +21,7 @@ const AllQuestion = () => {
           </div>
         </div>
       </header>
+      <SearchQuestion/>
       <div className="main-container">
         <div className="choice-question-box">
           <div className="lastest-box">
@@ -42,6 +45,7 @@ const AllQuestion = () => {
             </div>
           </div>
         </div>
+        
         <ViewQuestion />
         {/* <MostView/> */}
       </div>

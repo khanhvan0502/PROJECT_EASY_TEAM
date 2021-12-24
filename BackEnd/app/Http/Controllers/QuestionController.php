@@ -46,7 +46,37 @@ class QuestionController extends Controller
         ]);
     }
 
+    /**
+     * Save comments_couter
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function saveCommentsCouter(Request $request)
+    {
+        $question = Question::find($request->input('question_id'));
+        $question->comments_couter = $request->input('comments_couter');
+        $question->save();
+        
+        return response()->json([
+            'status' => 200,
+            'data' => $question,
+            'message' => 'Success to save comments_couter'
+        ]);
+    }
+    
+    public function votes(Request $request)
+    {
+        $question = Question::find($request->input('question_id'));
+        $question->increment('votes_couter');
+        $question->save();
 
+        return response()->json([
+            'status' => 200,
+            'data' => $question,
+            'message' => 'Success to save votes_couter'
+        ]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -96,6 +126,45 @@ class QuestionController extends Controller
         }
     }
 
+    public function getQuestionByTag($id){
+        $questions = Question::where('tag_id', $id)->get();
+        if (count($questions) > 0) {
+            return response()->json([
+                'status' => 400,
+                'data' => $questions,
+                'message' => 'Success to get all questions by tag'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 400,
+                'message' => 'No questions found'
+            ]);
+        }
+        return response()->json([
+            'status' => 200,
+            'data' => $questions,
+            'message' => 'Success to get all category question'
+        ]);
+    }
+
+    public function getQuestionByCategory($id){
+        $questions = Question::where('category_question_id', $id)->get();
+        if (count($questions) > 0) {
+            return response()->json([
+                'status' => 400,
+                'data' => $questions,
+                'message' => 'Success to get all questions by category'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 400,
+                'message' => 'No questions found'
+            ]);
+        }
+    }
+
+    
+
     
     /**
      * Display the specified resource.
@@ -119,17 +188,6 @@ class QuestionController extends Controller
     }
 
 
-    public function votes($id)
-    {
-        $question = Question::find($id);
-        $question->increment('votes_couter');
-        $question->save();
-        return response()->json([
-            'status' => 200,
-            'message' => 'Success to vote',
-            'data' => $question,
-        ]);
-    }
 
 
 

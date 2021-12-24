@@ -11,6 +11,8 @@ import Search from "../components/frontend/features/Search";
 import AllQuestion from "../components/frontend/Question/AllQuestion";
 import AskQuestion from "../components/frontend/Question/AskQuestion";
 import ContentQuestion from "../components/frontend/Question/ContentQuestion";
+import QuestionByTag from "../components/frontend/Question/QuestionByTag";
+import QuestionByCategory from "../components/frontend/Question/QuestionByCategory";
 
 const publicRoutesList = [
     { path: '/', exact: true, name: 'Home', component: Home },
@@ -26,6 +28,9 @@ const publicRoutesList = [
     { path: '/question', exact: true, name: 'Question', component: AllQuestion },
     { path: '/ask-question', exact: true, name: 'AskQuestion', component: AskQuestion },
     { path: '/question/:slug', exact: true, name: 'ContentQuestion', component: ContentQuestion },
+    { path: '/question/tag/:id', exact: true, name: 'QuestionByTag', component: QuestionByTag },
+    { path: '/question/category/:id', exact: true, name: 'QuestionByCategory', component: QuestionByCategory },
+    { path: '/user/:username', exact: true, name: 'User'  },
 ];
 
 export default publicRoutesList;

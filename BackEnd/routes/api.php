@@ -83,6 +83,10 @@ Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
 Route::get('question/search/{name}', [QuestionController::class, 'search']);
 Route::get('question/{slug}/', [QuestionController::class, 'show']);
 Route::get('hot-question', [QuestionController::class, 'mostView']);
+Route::post('question/save-comments-couter', [QuestionController::class, 'saveCommentsCouter']);
+Route::post('question/save-votes', [QuestionController::class, 'votes']);
+Route::get('question/tag/{id}', [QuestionController::class, 'getQuestionByTag']);
+Route::get('question/category/{id}', [QuestionController::class, 'getQuestionByCategory']);
 
 
 Route::post('store-category-question', [CategoryQuestionController::class, 'store']);
@@ -93,5 +97,7 @@ Route::get('get-all-category-question', [CategoryQuestionController::class, 'get
 Route::post('store-tag', [TagController::class, 'store']);
 Route::get('get-all-tag', [TagController::class, 'getAllTag']);
 
+
 // Comment
 Route::get('all-comment/{id}', [CommentController::class, 'getCommentById']);
+Route::post('comment/save-votes', [CommentController::class, 'votes']);

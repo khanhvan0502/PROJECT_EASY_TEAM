@@ -57,10 +57,25 @@ class CommentController extends Controller
                 'message' => 'Success to create new comment'
             ]);
         }
-        
-
-       
     }
+
+    public function votes(Request $request)
+    {
+        $question = Comment::find($request->input('id'));
+        $question->increment('count_votes');
+        $question->save();
+        return response()->json([
+            'status' => 200,
+            'data' => $question,
+            'message' => 'Success to save votes_couter'
+        ]);
+    }
+
+
+    
+
+
+
 
     /**
      * Display the comment for each question

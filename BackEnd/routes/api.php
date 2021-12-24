@@ -5,6 +5,8 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\API\Search;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+
+
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
@@ -12,6 +14,14 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsItemController;
 use App\Http\Controllers\CategoryQuizController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CategoryQuestionController;
+use App\Http\Controllers\TagController;
+use Illuminate\Support\Facades\Route;
+
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -53,7 +63,6 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::post('update-item-quiz/{id}', [ItemController::class, 'update']);
     Route::delete('delete-item-quiz/{id}', [ItemController::class, 'destroy']);
     Route::get('all-item-quiz', [ItemController::class, 'allitem']);
-
     // Quiz
     Route::get('view-quiz', [QuizController::class, 'index']);
     Route::post('store-quiz', [QuizController::class, 'store']);
@@ -78,11 +87,34 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
-
+    // Question
+    Route::post('store-question', [QuestionController::class, 'store']);
+    // Comment
+    Route::post('store-comment', [CommentController::class, 'store']);
+    
     Route::post('logout', [AuthController::class, 'logout']);
 
 });
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
+Route::get('question/search/{name}', [QuestionController::class, 'search']);
+Route::get('question/{slug}/', [QuestionController::class, 'show']);
+Route::get('hot-question', [QuestionController::class, 'mostView']);
+Route::post('question/save-comments-couter', [QuestionController::class, 'saveCommentsCouter']);
+Route::post('question/save-votes', [QuestionController::class, 'votes']);
+Route::get('question/tag/{id}', [QuestionController::class, 'getQuestionByTag']);
+Route::get('question/category/{id}', [QuestionController::class, 'getQuestionByCategory']);
+
+
+Route::post('store-category-question', [CategoryQuestionController::class, 'store']);
+Route::get('get-all-category-question', [CategoryQuestionController::class, 'getAllCategoryQuestion']);
+
+
+// Tag
+Route::post('store-tag', [TagController::class, 'store']);
+Route::get('get-all-tag', [TagController::class, 'getAllTag']);
+
+
+// Comment
+Route::get('all-comment/{id}', [CommentController::class, 'getCommentById']);
+Route::post('comment/save-votes', [CommentController::class, 'votes']);

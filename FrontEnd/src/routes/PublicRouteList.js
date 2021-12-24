@@ -8,6 +8,13 @@ import Page403 from '../components/errors/Page403';
 import Page404 from '../components/errors/Page404';
 import ViewQuiz from "../components/frontend/features/ViewQuiz";
 import Search from "../components/frontend/features/Search";
+
+import AllQuestion from "../components/frontend/Question/AllQuestion";
+import AskQuestion from "../components/frontend/Question/AskQuestion";
+import ContentQuestion from "../components/frontend/Question/ContentQuestion";
+import QuestionByTag from "../components/frontend/Question/QuestionByTag";
+import QuestionByCategory from "../components/frontend/Question/QuestionByCategory";
+
 import Result from "../components/frontend/features/Result";
 
 
@@ -22,7 +29,15 @@ const publicRoutesList = [
     { path: '/listquiz/:slug', exact: true, name: 'ItemQuiz', component: ViewItemQuiz },
     { path: '/listquiz/:slug/:slug', exact: true, name: 'Quiz', component: ViewQuiz },
     { path: '/search', exact: true, name: 'Search', component: Search },
+
+    { path: '/question', exact: true, name: 'Question', component: AllQuestion },
+    { path: '/ask-question', exact: true, name: 'AskQuestion', component: AskQuestion },
+    { path: '/question/:slug', exact: true, name: 'ContentQuestion', component: ContentQuestion },
+    { path: '/question/tag/:id', exact: true, name: 'QuestionByTag', component: QuestionByTag },
+    { path: '/question/category/:id', exact: true, name: 'QuestionByCategory', component: QuestionByCategory },
+    { path: '/user/:username', exact: true, name: 'User'  },
     { path: '/result', exact: true, name: 'Result', component: Result },
+
 ];
 
 export default publicRoutesList;

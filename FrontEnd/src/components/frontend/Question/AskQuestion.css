@@ -1,0 +1,18 @@
+.hint{
+    text-align: center;
+    
+}
+.main-form{
+    width: 800px;
+    margin-left: 20%;
+    border-radius: 5px;
+}
+.tag-container, .category-container{
+    display: flex;
+}
+.add-tag-btn, .add-category-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    /* color: #f25c05; */
+}

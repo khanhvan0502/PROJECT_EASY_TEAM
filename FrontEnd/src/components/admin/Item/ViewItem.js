@@ -21,7 +21,7 @@ function ViewItem() {
         })
 
     }, []);
-
+    
     const deleteItemQuiz = (e, id) => {
         e.preventDefault();
 
@@ -47,9 +47,9 @@ function ViewItem() {
     } else {
         var ItemStatus = '';
         display_ItemData = viewItem.map((item, index) => {
-            if (item.status === "0") {
+            if (item.status === 0) {
                 ItemStatus = 'Show';
-            } else if (item.status === "1") {
+            } else if (item.status === 1) {
                 ItemStatus = 'Hidden';
             }
 

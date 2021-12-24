@@ -13,7 +13,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
-            $table->string('status')->default('0');
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
             $table->softDeletes();
         });

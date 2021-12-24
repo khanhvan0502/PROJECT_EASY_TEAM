@@ -32,24 +32,39 @@ function ViewQuiz(props) {
                 }
             }
         });
-
         return () => {
             isMounted = false;
         }
     }, [props.match.params.slug, history]);
 
 
-
     const changeHandle = (e) => {
         e.persist();
         setSelected({ ...selected, [e.target.name]: e.target.value });
     }
-    console.log(selected);
+
+    // console.log(JSON.stringify(selected));
+    // console.log(Object.values(selected).toString());
 
 
     const submitQuiz = (e) => {
         e.preventDefault();
 
+        const data = {
+            item_id: item.id,
+            quiz_choice: Object.values(selected).toString(),
+        }
+
+        axios.post(`/api/answer`, data).then(res => {
+            if (res.data.status === 200) {
+                swal("Success", res.data.message, "success");
+                history.push('/result');
+            } else if (res.data.status === 401) {
+                swal("Error", res.data.message, "error");
+            } else if (res.data.status === 404) {
+                swal("Warning", res.data.message, "warning");
+            }
+        });
     }
 
     if (loading) {
@@ -108,10 +123,10 @@ function ViewQuiz(props) {
                                 Bài thi {item.name}
                             </div>
                             <div className="card-body">
-                                <form onSubmit={submitQuiz}>
+                                <form>
                                     {showQuizList}
                                     <div className="d-grid gap-2">
-                                        <button className="form-control-submit-button" type="submit">Nộp bài</button>
+                                        <button onClick={submitQuiz} className="form-control-submit-button" type="submit">Nộp bài</button>
                                     </div>
                                 </form>
                             </div>

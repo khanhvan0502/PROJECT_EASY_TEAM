@@ -47,6 +47,7 @@ function AddComment({ questionId}) {
         <div className="form-group" >
           <input type="hidden" onChange={handleInput} value={commentInput.question_id}
           />
+          
         </div>
         <div className="form-group">
           <label for="">Nội dung</label>

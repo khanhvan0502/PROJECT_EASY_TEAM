@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryQuiz;
 use App\Models\Item;
+use App\Models\News;
+use App\Models\NewsItem;
 use App\Models\Quiz;
 
 class FrontendController extends Controller
@@ -68,6 +70,66 @@ class FrontendController extends Controller
             return response()->json([
                 'status' => 404,
                 'message' => 'No such Item Found',
+            ]);
+        }
+    }
+
+    public function news()
+    {
+        $news = News::where('status', '0')->get();
+        return response()->json([
+            'status' => 200,
+            'news' => $news,
+        ]);
+    }
+
+    public function newsitem($slug)
+    {
+        $news = News::where('slug', $slug)->where('status', '0')->first();
+        if ($news) {
+            $newsitem = NewsItem::where('news_id', $news->id)->where('status', '0')->get();
+            if ($newsitem) {
+                return response()->json([
+                    'status' => 200,
+                    'newsItem_data' => [
+                        'newsItem' => $newsitem,
+                        'news' => $news,
+                    ],
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'No NewsItem Available',
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No such News Found',
+            ]);
+        }
+    }
+
+    public function viewnewsitem($news_slug, $newsitem_slug)
+    {
+        $news = News::where('slug', $news_slug)->where('status', '0')->first();
+        if ($news) {
+            $newsitem = NewsItem::where('news_id', $news->id)->where('slug', $newsitem_slug)->where('status', '0')->first();
+            if ($newsitem) {
+                return response()->json([
+                    'status' => 200,
+                        'newsItem' => $newsitem,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'No NewsItem Available',
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No such News Found',
             ]);
         }
     }

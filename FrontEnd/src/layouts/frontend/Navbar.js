@@ -61,6 +61,9 @@ function Navbar() {
                                 <Link className="nav-link" to="/listquiz">Làm bài thi</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" to="/news">Tin tức</Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/search">Search</Link>
                             </li>
                             <li className="nav-item">

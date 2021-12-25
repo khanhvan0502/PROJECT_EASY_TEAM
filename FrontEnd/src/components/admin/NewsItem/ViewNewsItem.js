@@ -25,7 +25,15 @@ function ViewNewsItem() {
         return <h4>View News Item Loading...</h4>
     }
     else {
+        var NewsItemStatus = '';
         display_NewsItemData = viewNewsItem.map((item) => {
+            if (item.status === 0) {
+                NewsItemStatus = 'Show';
+            }
+            else if (item.status === 1) {
+                NewsItemStatus = 'Hidden';
+            }
+
             return (
                 <tr key={item.id}>
                     <td>{item.id}</td>
@@ -38,13 +46,13 @@ function ViewNewsItem() {
                         <img src={`http://localhost:8000/${item.image}`} width="50px" alt={item.name} />
                     </td>
                     <td>
-                        <Link to={`eidt-news-item/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
+                        <Link to={`edit-news-item/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
                     </td>
                     <td>
                         <button type="button" className="btn btn-danger btn-sm">Xóa</button>
                         {/* <button type="button" onClick={(e) => deleteItemQuiz(e, item.id)} className="btn btn-danger btn-sm">Xóa</button> */}
                     </td>
-                    <td>{item.status}</td>
+                    <td>{NewsItemStatus}</td>
                 </tr>
             )
         });

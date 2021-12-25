@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\Search;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryQuizController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsItemController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\NewsItemController;
-use App\Http\Controllers\CategoryQuizController;
+use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -18,6 +18,12 @@ Route::get('get-category-quiz', [FrontendController::class, 'category']);
 Route::get('fetch-items-quiz/{slug}', [FrontendController::class, 'item']);
 Route::get('fetch-quiz/{slug}', [FrontendController::class, 'quiz']);
 Route::get('search/{key}', [Search::class, 'search']);
+
+//News
+Route::get('getNews', [FrontendController::class, 'news']);
+Route::get('fetchnewsitems/{slug}', [FrontendController::class, 'newsitem']);
+Route::get('view-newsitems-detail/{news_slug}/{newsitem_slug}', [FrontendController::class, 'viewnewsitem']);
+
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
@@ -64,10 +70,12 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::put('update-news/{id}', [NewsController::class, 'update']);
     Route::delete('delete-news/{id}', [NewsController::class, 'destroy']);
     Route::get('all-news', [NewsController::class, 'allnews']);
-    
+
     //NewsItem
     Route::post('store-newsitem', [NewsItemController::class, 'store']);
     Route::get('view-news-item', [NewsItemController::class, 'index']);
+    Route::get('edit-news-item/{id}', [NewsItemController::class, 'edit']);
+    Route::post('update-news-item/{id}', [NewsItemController::class, 'update']);
 
 });
 

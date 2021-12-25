@@ -1,0 +1,28 @@
+.choice-question-box{
+    border-bottom: 2px solid #f25c05;
+    width: 1000px;
+    height: 45px;
+    margin-left: 50px;
+    margin-top: 60px;
+
+}
+.lastest-box, .most-view-box, .most-answer-box, .most-vote-box{
+    display: inline-block;
+    background-color: #ffffff;
+    height: 43px;
+    width: 25%;
+    text-align: center;
+    padding-top: 10px;
+}
+.lastest-box h6, .most-view-box h6, .most-answer-box h6, .most-vote-box h6{
+    color: #f25c05;
+}
+.lastest-box:hover, .most-view-box:hover, .most-answer-box:hover, .most-vote-box:hover{
+    background-color: #f25c05;
+    color: #ffffff;
+    cursor: pointer;
+}
+.lastest-box:hover h6, .most-view-box:hover h6, .most-answer-box:hover h6, .most-vote-box:hover h6{
+    color: #ffffff;
+}
+

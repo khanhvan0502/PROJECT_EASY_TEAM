@@ -160,7 +160,7 @@ function EditQuiz(props) {
                             <input type="text" name="description" onChange={handleInput} value={quizInput.description} className="form-control" /><small className="text-danger">{errorlist.description}</small>
                         </div>
                         <div className="form-group mb-2">
-                            <label className="form-label">Trạng thái&nbsp;&nbsp;</label>
+                            <label className="form-label">Trạng thái &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <input type="checkbox" name="status" onChange={handleCheckbox} defaultChecked={checkboxes.status === 1 ? true : false} className="form-check-input" />
                         </div>
                         <button type="submit" className="btn btn-primary px-4 mt-2">Cập nhật</button>

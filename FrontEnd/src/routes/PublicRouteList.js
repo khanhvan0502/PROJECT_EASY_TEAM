@@ -11,6 +11,12 @@ import Search from "../components/frontend/features/Search";
 import ViewNews from "../components/frontend/features/ViewNews";
 import ViewNewsItem from "../components/frontend/features/ViewNewsItem";
 import ViewNewsItemDetail from "../components/frontend/features/ViewNewsItemDetail";
+import AllQuestion from "../components/frontend/Question/AllQuestion";
+import AskQuestion from "../components/frontend/Question/AskQuestion";
+import ContentQuestion from "../components/frontend/Question/ContentQuestion";
+import QuestionByTag from "../components/frontend/Question/QuestionByTag";
+import QuestionByCategory from "../components/frontend/Question/QuestionByCategory";
+import Result from "../components/frontend/features/Result";
 
 
 const publicRoutesList = [
@@ -27,6 +33,14 @@ const publicRoutesList = [
     { path: '/news', exact: true, name: 'ViewNews', component: ViewNews },
     { path: '/news/:slug', exact: true, name: 'ViewNewsItem', component: ViewNewsItem },
     { path: '/news/:news/:newsitem', exact: true, name: 'ViewNewsItemDetail', component: ViewNewsItemDetail },
+    { path: '/question', exact: true, name: 'Question', component: AllQuestion },
+    { path: '/ask-question', exact: true, name: 'AskQuestion', component: AskQuestion },
+    { path: '/question/:slug', exact: true, name: 'ContentQuestion', component: ContentQuestion },
+    { path: '/question/tag/:id', exact: true, name: 'QuestionByTag', component: QuestionByTag },
+    { path: '/question/category/:id', exact: true, name: 'QuestionByCategory', component: QuestionByCategory },
+    { path: '/user/:username', exact: true, name: 'User'  },
+    { path: '/result', exact: true, name: 'Result', component: Result },
+
 ];
 
 export default publicRoutesList;

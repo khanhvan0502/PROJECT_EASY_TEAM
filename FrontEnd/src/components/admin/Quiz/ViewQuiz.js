@@ -17,7 +17,7 @@ function ViewQuiz() {
                 setQuiz(res.data.quizzes);
                 setLoading(false);
             }
-        })
+        });
 
     }, []);
 

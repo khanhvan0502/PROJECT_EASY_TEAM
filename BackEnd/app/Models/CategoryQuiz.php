@@ -27,10 +27,7 @@ class CategoryQuiz extends Model
         'deleted_at',
     ];
 
-    public function categoryQuestions()
-    {
-        return $this->hasMany(Question::class, 'category_id', 'id');
-    }
+    
     // use HasFactory;
     // protected $table = 'categories';
     // protected $fillable = [

@@ -15,6 +15,7 @@ function ViewItem() {
         axios.get(`/api/view-item-quiz`).then(res => {
             if (res.data.status === 200) {
                 setItem(res.data.items);
+                console.log(res.data.items);
                 setLoading(false);
             }
         })

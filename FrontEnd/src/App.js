@@ -27,7 +27,7 @@ class App extends Component {
             <AdminPrivateRoute path="/admin" name="Admin" />
 
             <PublicRoute path="/" name="Home" />
-
+            
             <Route path="/login">
               {localStorage.getItem('auth_token') ? <Redirect to='/' /> : <Login />}
             </Route>

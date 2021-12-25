@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\CategoryQuiz;
 use App\Models\Item;
 use App\Models\News;

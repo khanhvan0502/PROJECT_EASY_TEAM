@@ -1,36 +1,22 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\API\AuthController;
-=======
-use App\Http\Controllers\AnswerController;
 
->>>>>>> 943e19e663060b855ebada75e68d0047fc2bf086
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\API\Search;
 use App\Http\Controllers\CategoryQuizController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ItemController;
-
-
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsItemController;
 use App\Http\Controllers\QuizController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-=======
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\NewsItemController;
-use App\Http\Controllers\CategoryQuizController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryQuestionController;
 use App\Http\Controllers\TagController;
 
-
->>>>>>> 943e19e663060b855ebada75e68d0047fc2bf086
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);

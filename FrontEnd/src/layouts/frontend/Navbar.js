@@ -58,7 +58,7 @@ function Navbar() {
                                 <Link className="nav-link" aria-current="page" to="/">Trang chủ</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/ask-question">Đặt câu hỏi</Link>
+                                <Link className="nav-link" to="/question">Câu hỏi</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/listquiz">Làm bài thi</Link>

@@ -17,6 +17,11 @@ class CommentController extends Controller
     public function index()
     {
         //
+        $comment = Comment::all();
+        return response()->json([
+            'data' => $comment,
+            'status' => '200',
+            'message' => 'success to list all comment']);
     }
 
     /**
@@ -40,23 +45,24 @@ class CommentController extends Controller
         $validator = Validator::make($request->all(), [
             'content' => 'required',
         ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 400,
+        if ($validator->failed()){
+            return response([
+                'status' => 422,
                 'errors' => $validator->messages(),
             ]);
         }else{
             $comment = new Comment;
-            $comment->content = $request->input('content');
+            $comment->content = $request->content;
             $comment->user_id = auth('sanctum')->user()->id;
             $comment->question_id = $request->input('question_id');
             $comment->save();
-            return response()->json([
+            return response([
                 'status' => 200,
                 'data' => $comment,
-                'message' => 'Success to create new comment'
             ]);
         }
+        
+        
     }
 
     public function votes(Request $request)
@@ -115,7 +121,19 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        // edit comment base on id
+        $comment = Comment::find($id);
+        if ($comment) {
+            return response()->json([
+                'status' => 200,
+                'comment' => $comment,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Comment not found',
+            ]);
+        }
     }
 
     /**
@@ -128,6 +146,26 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validator = Validator::make($request->all(), [
+            'content' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        }else{
+            $comment = new Comment;
+            $comment->content = $request->input('content');
+            $comment->user_id = auth('sanctum')->user()->id;
+            $comment->question_id = $request->input('question_id');
+            $comment->save();
+            return response()->json([
+                'status' => 200,
+                'data' => $comment,
+                'message' => 'Success to update new comment'
+            ]);
+        }
     }
 
     /**
@@ -138,6 +176,12 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // delete a comment base on id
+        $comment = Comment::find($id);
+        $comment->delete();
+        return response()->json([
+            'status' => 200,
+            'message' => 'Success to delete comment'
+        ]);
     }
 }

@@ -16,7 +16,12 @@ class CategoryQuestionController extends Controller
      */
     public function index()
     {
-        //
+        // get list of category question
+        $category_question = CategoryQuestion::all();
+        return response()->json([
+            'data' => $category_question,
+            'status' => '200',
+            'message' => 'success to list all category question']);
     }
 
     public function getAllCategoryQuestion()
@@ -92,6 +97,19 @@ class CategoryQuestionController extends Controller
     public function edit($id)
     {
         //
+        $categoryQuestion = CategoryQuestion::find($id);
+        if ($categoryQuestion) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'Success to get category question',
+                'data' => $categoryQuestion,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Category question not found',
+            ]);
+        }
     }
 
     /**
@@ -103,7 +121,7 @@ class CategoryQuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -114,6 +132,19 @@ class CategoryQuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // delete category question
+        $categoryQuestion = CategoryQuestion::find($id);
+        if ($categoryQuestion) {
+            $categoryQuestion->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Successfully deleted category question',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Category question not found',
+            ]);
+        }
     }
 }

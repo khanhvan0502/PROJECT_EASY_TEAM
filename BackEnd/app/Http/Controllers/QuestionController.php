@@ -20,7 +20,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+        return response([
+            'status' => 200,
+            'data' => $questions,
+        ]);
     }
 
     public function getAllQuestions()
@@ -225,7 +229,14 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // delete the question base on id
+        $question = Question::find($id);
+        $question->delete();
+        return response()->json([
+            'status' => 200,
+            'message' => 'Question deleted successfully'
+        ]);
+
     }
 
     /**

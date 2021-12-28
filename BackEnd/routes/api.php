@@ -48,6 +48,26 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::delete('profile/delete/{id}', [UserController::class, 'destroy']);
     Route::put('profile/edit/{id}', [UserController::class, 'update']);
 
+    // Question
+    Route::delete('question/delete/{id}', [QuestionController::class, 'destroy']);
+    Route::get('question/', [QuestionController::class, 'index']);
+    
+    // Comment
+    Route::get('comment/', [CommentController::class, 'index']);
+    Route::delete('comment/delete/{id}', [CommentController::class, 'destroy']);
+    
+    // Category Question
+    Route::get('category-question/', [CategoryQuestionController::class, 'index']);
+    Route::delete('category-question/delete/{id}', [CategoryQuestionController::class, 'destroy']);
+    Route::post('category-question/add', [CategoryQuestionController::class, 'store']);
+
+    // Tag
+    Route::get('tag/', [TagController::class, 'index']);
+    Route::delete('tag/delete/{id}', [TagController::class, 'destroy']);
+    Route::post('tag/add', [TagController::class, 'store']);
+    
+    
+
     // Cagegory Quiz
     Route::get('view-category-quiz', [CategoryQuizController::class, 'index']);
     Route::post('store-category-quiz', [CategoryQuizController::class, 'store']);
@@ -109,7 +129,6 @@ Route::get('question/tag/{id}', [QuestionController::class, 'getQuestionByTag'])
 Route::get('question/category/{id}', [QuestionController::class, 'getQuestionByCategory']);
 
 
-Route::post('store-category-question', [CategoryQuestionController::class, 'store']);
 Route::get('get-all-category-question', [CategoryQuestionController::class, 'getAllCategoryQuestion']);
 
 

@@ -19,7 +19,44 @@ const Sidebar = () => {
             </div>
             Quản lý người dùng
           </Link>
+          {/* ------------------------------------------------------------------------------------------ */}
+          <Link className="nav-link collapse" to="#"
+            data-toggle="collapse"
+            data-target="#collapseQuestionLayouts"
+            aria-expanded="false"
+            aria-controls="collapseLayouts"
+          >
+            <div className="sb-nav-link-icon">
+              <i className="fas fa-columns" />
+            </div>
+            Quản lý câu hỏi
+            <div className="sb-sidenav-collapse-arrow">
+              <i className="fas fa-angle-down" />
+            </div>
+          </Link>
+          <div
+            className="collapse"
+            id="collapseQuestionLayouts"
+            aria-labelledby="headingOne"
+            data-bs-parent="#sidenavAccordion"
+          >
+            <nav className="sb-sidenav-menu-nested nav">
+              <Link className="nav-link" to="/admin/question">
+                Tất cả câu hỏi
+              </Link>
+              <Link className="nav-link" to="/admin/comment">
+                Tất cả bình luận
+              </Link>
+              <Link className="nav-link" to="/admin/question/category">
+                Tất cả danh mục
+              </Link>
+              <Link className="nav-link" to="/admin/question/tag">
+                Tất cả tag
+              </Link>
+            </nav>
+          </div>
           
+          {/* ------------------------------------------------------------------------------------------ */}
           <Link className="nav-link collapse" to="#"
             data-toggle="collapse"
             data-target="#collapseCategoryLayouts"

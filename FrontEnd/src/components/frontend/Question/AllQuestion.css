@@ -26,3 +26,21 @@
     color: #ffffff;
 }
 
+.btn-ask-question{
+    width: 200px;
+    height: 40px;
+    background-color: #f25c05;
+    color: #ffffff;
+    border-radius: 16px;
+    border: none;
+    font-size: 20px;
+    margin-left: 850px;
+    margin-top: 20px;
+    
+}
+.btn-ask-question:hover{
+    background-color: coral;
+    color: blue;
+    cursor: pointer;
+}
+

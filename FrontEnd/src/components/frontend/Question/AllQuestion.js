@@ -11,7 +11,7 @@ const AllQuestion = () => {
   return (
     <div>
       <Navbar />
-      
+
       <header className="ex-header">
         <div className="container">
           <div className="row">
@@ -21,9 +21,15 @@ const AllQuestion = () => {
           </div>
         </div>
       </header>
-      <SearchQuestion/>
+      {/* <SearchQuestion/> */}
+
       <div className="main-container">
-        <div className="choice-question-box">
+        <button type="submit" className="btn-ask-question">
+          <Link to="/ask-question" style={{textDecoration:"none", color:"white"}}>
+          <i className="fas fa-plus-circle" style={{marginRight:"10px"}}></i>
+            Đặt câu hỏi</Link>
+        </button>
+        {/* <div className="choice-question-box">
           <div className="lastest-box">
             <div className="title-box">
               <h6>Mới nhất</h6>
@@ -44,12 +50,12 @@ const AllQuestion = () => {
               <h6>Bình chọn nhiều nhất</h6>
             </div>
           </div>
-        </div>
-        
+        </div> */}
+
         <ViewQuestion />
         {/* <MostView/> */}
       </div>
-     
+
       <Footer />
     </div>
   );

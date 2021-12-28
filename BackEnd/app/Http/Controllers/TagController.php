@@ -16,6 +16,11 @@ class TagController extends Controller
     public function index()
     {
         //
+        $tag = Tag::all();
+        return response()->json([
+            'data' => $tag,
+            'status' => '200',
+            'message' => 'success to list all tag']);
     }
 
     // get all tag from database
@@ -57,6 +62,7 @@ class TagController extends Controller
             return response()->json([
                 'status' => 400,
                 'errors' => $validator->messages(),
+                
             ]);
         } else {
             $tag = new Tag;
@@ -66,6 +72,7 @@ class TagController extends Controller
             return response()->json([
                 'status' => 200,
                 'data' => $tag,
+                'message' => 'Success to create tag'
             ]);
         }
     }
@@ -122,5 +129,11 @@ class TagController extends Controller
     public function destroy($id)
     {
         //
+        $tag = Tag::find($id);
+        $tag->delete();
+        return response()->json([
+            'status' => 200,
+            'message' => 'success to delete tag'
+        ]);
     }
 }

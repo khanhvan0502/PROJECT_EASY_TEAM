@@ -129,4 +129,21 @@ class NewsItemController extends Controller
             }
         }
     }
+
+    public function destroy($id)
+    {
+        $newsitem = NewsItem::find($id);
+        if ( $newsitem) {
+            $newsitem->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Xóa danh mục tin tức thành công',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Không tìm thấy ID danh mục',
+            ]);
+        }
+    }
 }

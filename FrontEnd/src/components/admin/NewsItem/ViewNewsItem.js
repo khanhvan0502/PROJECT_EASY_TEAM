@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import swal from 'sweetalert';
 
 function ViewNewsItem() {
 
@@ -17,6 +18,25 @@ function ViewNewsItem() {
             };
         });
     }, []);
+
+    const deleteNewsItem = (e, id)=>{
+        e.preventDefault();
+
+        const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Deleting";
+
+        axios.delete(`/api/delete-news-item/${id}`).then(res=>{
+            if(res.data.status === 200){
+                swal('Success', res.data.message, "success");
+                thisClicked.closest("tr").remove();
+            }
+            else if(res.data.status === 404)
+            {
+                swal('Success', res.data.message, "success");
+                thisClicked.innerText = "Delete";
+            }
+        });
+    }
 
     var display_NewsItemData = "";
 
@@ -48,8 +68,8 @@ function ViewNewsItem() {
                         <Link to={`edit-news-item/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
                     </td>
                     <td>
-                        <button type="button" className="btn btn-danger btn-sm">Xóa</button>
-                        {/* <button type="button" onClick={(e) => deleteItemQuiz(e, item.id)} className="btn btn-danger btn-sm">Xóa</button> */}
+                        {/* <button type="button" className="btn btn-danger btn-sm">Xóa</button> */}
+                        <button type="button" onClick={(e) => deleteNewsItem(e, item.id)} className="btn btn-danger btn-sm">Xóa</button>
                     </td>
                     <td>{NewsItemStatus}</td>
                 </tr>

@@ -64,6 +64,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::post('update-item-quiz/{id}', [ItemController::class, 'update']);
     Route::delete('delete-item-quiz/{id}', [ItemController::class, 'destroy']);
     Route::get('all-item-quiz', [ItemController::class, 'allitem']);
+
     // Quiz
     Route::get('view-quiz', [QuizController::class, 'index']);
     Route::post('store-quiz', [QuizController::class, 'store']);
@@ -71,7 +72,6 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::post('update-quiz/{id}', [QuizController::class, 'update']);
     Route::delete('delete-quiz/{id}', [QuizController::class, 'destroy']);
     Route::get('get-all-quiz', [QuizController::class, 'getAllQuizzes']);
-
 
     //News
     Route::get('view-news', [NewsController::class, 'index']);
@@ -86,7 +86,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('view-news-item', [NewsItemController::class, 'index']);
     Route::get('edit-news-item/{id}', [NewsItemController::class, 'edit']);
     Route::post('update-news-item/{id}', [NewsItemController::class, 'update']);
-
+    Route::delete('delete-news-item/{id}', [NewsItemController::class, 'destroy']);
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

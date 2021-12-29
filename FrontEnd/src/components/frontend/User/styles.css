@@ -1,0 +1,43 @@
+.profile-container{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+.left-container{
+    width: 300px;
+    height: 400px;
+    border: 1px solid linear-gradient(to right, rgba(238, 23, 23, 0.719), rgb(255, 115, 0));
+    text-align: center;
+    margin-right: 60px;
+    background-image: linear-gradient(to right, rgba(238, 23, 23, 0.719), rgb(255, 115, 0));
+}
+
+.left-container .avatar img{
+    width: 100px;
+    height: 100px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.right-container{
+    width: 600px;
+    height: 400px;
+    border: 1px solid white;
+}
+.fullname, .username, .email, .phone, .created_at{
+    margin-bottom: 15px;
+}
+
+
+.old-password, .new-password, .confirm-password{
+    border-radius: 15px;
+    width: 400px;
+    height: 40px;
+    border: 1px solid thistle;
+}
+.old-password:focus, .new-password:focus, .confirm-password:focus{
+    border: 1px solid #00bfff;
+}
+.btn-change-password {
+    width: 400px;
+}

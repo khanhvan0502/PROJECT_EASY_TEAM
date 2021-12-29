@@ -17,6 +17,9 @@ import ContentQuestion from "../components/frontend/Question/ContentQuestion";
 import QuestionByTag from "../components/frontend/Question/QuestionByTag";
 import QuestionByCategory from "../components/frontend/Question/QuestionByCategory";
 import Result from "../components/frontend/features/Result";
+import UserProfile from "../components/frontend/User/UserProfile";
+import ChangePassword from "../components/frontend/User/ChangePassword";
+import EditUserProfile from "../components/frontend/User/EditUserProfile";
 
 
 const publicRoutesList = [
@@ -40,6 +43,9 @@ const publicRoutesList = [
     { path: '/question/category/:id', exact: true, name: 'QuestionByCategory', component: QuestionByCategory },
     { path: '/user/:username', exact: true, name: 'User'  },
     { path: '/result', exact: true, name: 'Result', component: Result },
+    { path: '/user/:username', exact: true, name: 'User', component: UserProfile  },
+    { path: '/user/:username/change-password', exact: true, name: 'ChangePassword', component: ChangePassword  },
+    { path: '/user/:username/edit', exact: true, name: 'EditUser', component: EditUserProfile  },
 
 ];
 

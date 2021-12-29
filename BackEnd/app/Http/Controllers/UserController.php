@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -76,7 +77,6 @@ class UserController extends Controller
                 'message' => 'Successfully created user',
             ]);
         }
-
     }
 
     /**
@@ -85,9 +85,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($username)
     {
-        //
+        // show single user by username
+        $data = [];
+        $user = User::where('username', 'like', $username)->first();
+        $data[] = $user;
+        return response()->json([
+            'data' => $data,
+            'username' => $user->username,
+            'status' => 200,
+        ]);
     }
 
     /**
@@ -156,6 +164,38 @@ class UserController extends Controller
                     'message' => 'User not found',
                 ]);
             }
+        }
+    }
+
+    public function changePassword(Request $request, $username)
+    {
+        $validator = Validator::make($request->all(), [
+            'old_password'=>'required',
+            'password'=>'required|min:8|max:100',
+            'confirm_password'=>'required|same:password'
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors(),
+                'status'=> 422,
+            ]);
+        }
+
+        $user= User::where('username','like',$username)->first();
+        if(Hash::check($request->old_password,$user->password)){
+            $user->update([
+                'password'=>Hash::make($request->password)
+            ]);
+            return response()->json([
+                'message'=>'Password successfully updated',
+                'status'=>200,
+            ]);
+        }else{
+            return response()->json([
+                'message'=>'Old password does not matched',
+                'status'=>400,
+            ]);
         }
     }
 

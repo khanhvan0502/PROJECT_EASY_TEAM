@@ -27,7 +27,9 @@ Route::get('get-answer', [AnswerController::class, 'answer']);
 Route::get('get-category-quiz', [FrontendController::class, 'category']);
 Route::get('fetch-items-quiz/{slug}', [FrontendController::class, 'item']);
 Route::get('fetch-quiz/{slug}', [FrontendController::class, 'quiz']);
-Route::get('search/{key}', [Search::class, 'search']);
+// Route::get('search/{key}', [CategoryQuizController::class, 'search']);
+Route::get('search/{key}', [ItemController::class, 'search']);
+// Route::get('search/{key}', [Search::class, 'search']);
 
 //News
 Route::get('getNews', [FrontendController::class, 'news']);

@@ -151,4 +151,8 @@ class ItemController extends Controller
             ]);
         }
     }
+
+    function search($key){
+        return Item::where('name', 'LIKE', "%$key%")->get();
+    }
 }

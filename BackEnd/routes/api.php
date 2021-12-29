@@ -121,6 +121,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 });
 
+// User Profile
+Route::get('user/{username}', [UserController::class, 'show']);
+Route::post('user/{username}/change-password', [UserController::class, 'changePassword']);
+
 Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
 Route::get('question/search/{name}', [QuestionController::class, 'search']);
 Route::get('question/{slug}/', [QuestionController::class, 'show']);

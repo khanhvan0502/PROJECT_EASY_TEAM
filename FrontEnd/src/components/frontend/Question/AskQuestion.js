@@ -69,14 +69,7 @@ function ViewQuestion() {
       });
     });
   };
-  const AddTag1 = () => {
-    alert("Hello");
-  };
 
-  const AddTag = (e) => {
-    e.preventDefault();
-    AddTag();
-  };
 
   return (
     <div>
@@ -166,12 +159,7 @@ function ViewQuestion() {
                     );
                   })}
                 </select>
-                <button
-                  className="add-category-btn form-control-submit-button"
-                  onClick={AddTag1}
-                >
-                  <i className="fas fa-plus"></i>
-                </button>
+   
               </div>
             </div>
             <p>Vui lòng chọn danh mục thích hợp</p>
@@ -225,12 +213,7 @@ function ViewQuestion() {
                     );
                   })}
                 </select>
-                <button
-                  className="add-tag-btn form-control-submit-button"
-                  onClick={AddTag}
-                >
-                  <i className="fas fa-plus"></i>
-                </button>
+                
               </div>
             </div>
             <p>Vui lòng chọn tag phù hợp với câu hỏi</p>

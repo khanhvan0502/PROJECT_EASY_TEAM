@@ -35,7 +35,6 @@ function ViewNews() {
                 thisClicked.innerText = "Delete";
             }
         });
-
     }
     
     var viewnews_HTMLTABLE = "";
@@ -55,7 +54,6 @@ function ViewNews() {
                         <Link to={`edit-news/${item.id}`} className="btn btn-success btn-sm text-decoration-none">Sửa</Link>
                     </td>
                     <td>
-                        {/* <button type="button"  className="btn btn-danger btn-sm">Xóa</button> */}
                         <button type="button" onClick={(e) => deleteNews(e, item.id)} className="btn btn-danger btn-sm">Xóa</button>
                     </td>
                 </tr>

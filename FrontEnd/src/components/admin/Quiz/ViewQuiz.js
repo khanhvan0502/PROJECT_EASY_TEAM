@@ -44,7 +44,7 @@ function ViewQuiz() {
     if (loading) {
         return <h4>View Items Loading...</h4>
     } else {
-        
+
         var QuizStatus = '';
         display_QuizData = viewQuiz.map((item) => {
             if (item.status === 0) {

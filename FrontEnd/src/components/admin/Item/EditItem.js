@@ -104,7 +104,6 @@ function EditItem(props) {
                             <label className="form-label">Select category</label>
                             <select name="category_id" onChange={handleInput} value={itemInput.category_id} className="form-select form-control">
                                 <option>Select option</option>
-
                                 {
                                     categorylist.map((item) => {
                                         return (
@@ -112,7 +111,6 @@ function EditItem(props) {
                                         )
                                     })
                                 }
-
                             </select>
                             <small className="text-danger">{errorlist.category_id}</small>
                         </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Item;
+use App\Models\Quiz;
 use App\Models\CategoryQuiz;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryQuizController extends Controller
@@ -63,7 +65,7 @@ class CategoryQuizController extends Controller
             'slug' => 'required|max:191',
             'description' => 'required|max:191',
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
@@ -131,4 +133,34 @@ class CategoryQuizController extends Controller
             ]);
         }
     }
+
+    // public function search($key)
+    // {
+    //     $categoryQuiz = CategoryQuiz::where('name', 'Like', "%$key%")->where('status', '0')->first();
+    //     if ($categoryQuiz) {
+    //         $item = Item::where('name', 'Like', "%$key%")->where('status', '0')->get();
+    //         if ($item) {
+    //             $quiz = Quiz::where('question', 'Like', "%$key%")->where('status', '0')->get();
+    //             if ($quiz) {
+    //                 return response()->json([
+    //                     'status' => 200,
+    //                     'quiz_data' => [
+    //                         'item' => $item,
+    //                         'quiz' => $quiz,
+    //                     ],
+    //                 ]);
+    //             } else {
+    //                 return response()->json([
+    //                     'status' => 400,
+    //                     'message' => 'No Quiz Avaiable',
+    //                 ]);
+    //             }
+    //         } else {
+    //             return response()->json([
+    //                 'status' => 404,
+    //                 'message' => 'No such Item Found',
+    //             ]);
+    //         }
+    //     }
+    // }
 }

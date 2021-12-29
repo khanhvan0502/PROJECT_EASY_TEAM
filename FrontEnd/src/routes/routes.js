@@ -16,8 +16,11 @@ import AddNews from '../components/admin/News/AddNews';
 import EditNews from '../components/admin/News/EditNews';
 import ViewNewsItem from '../components/admin/NewsItem/ViewNewsItem';
 import AddNewsItem from '../components/admin/NewsItem/AddNewsItem';
-// import EditNewsItem from '../components/admin/NewsItem/EditNewsItem';
-
+import EditNewsItem from '../components/admin/NewsItem/EditNewsItem';
+import QuestionManagement from '../components/admin/Question/QuestionManagement';
+import CommentManagement from '../components/admin/Question/CommentManagement';
+import CategoryManagement from '../components/admin/Question/CategoryManagement';
+import TagManagement from '../components/admin/Question/TagManagement';
 
 
 const routes = [
@@ -40,6 +43,11 @@ const routes = [
     { path: '/admin/edit-news/:id', exact: true, name: 'EditNews', component: EditNews },
     { path: '/admin/view-news-item', exact: true, name: 'ViewNewsItem', component: ViewNewsItem },
     { path: '/admin/add-news-item', exact: true, name: 'AddNewsItem', component: AddNewsItem },
+    { path: '/admin/edit-news-item/:id', exact: true, name: 'EditNewsItem', component: EditNewsItem },
+    { path: '/admin/question', exact: true, name: 'QuestionManagement', component: QuestionManagement },
+    { path: '/admin/comment', exact: true, name: 'CommentManagement', component: CommentManagement },
+    { path: '/admin/question/category', exact: true, name: 'CategoryManagement', component: CategoryManagement },
+    { path: '/admin/question/tag', exact: true, name: 'TagManagement', component: TagManagement },
 
 
 ];

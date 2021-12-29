@@ -23,8 +23,8 @@ class NewsItemController extends Controller
         $validator = Validator::make($request->all(), [
             'news_id' => 'required|max:250',
             'name' => 'required|max:250',
-            'slug' => 'required|max:30',
-            'description' => 'required|max:250',
+            'slug' => 'required|max:50',
+            'description' => 'required|max:1000',
             'time' => 'required|max:191',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -81,8 +81,8 @@ class NewsItemController extends Controller
         $validator = Validator::make($request->all(), [
             'news_id' => 'required|max:250',
             'name' => 'required|max:250',
-            'slug' => 'required|max:30',
-            'description' => 'required|max:250',
+            'slug' => 'required|max:50',
+            'description' => 'required|max:1000',
             'time' => 'required|max:191',
         ]);
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import swal from "sweetalert";
 import ScrollButton from "../../../layouts/frontend/ScrollButton";
 import './ViewQuiz.css';
@@ -110,7 +111,7 @@ function ViewQuiz(props) {
             </header>
             <div className="py-3 bg-warning">
                 <div className="container">
-                    <h6>DANH MỤC / {item.category.name} / {item.name}</h6>
+                    <h6 className="text-uppercase text-dark"><Link className="text-decoration-none text-dark" to="/listquiz">danh mục</Link> / <Link className="text-decoration-none text-dark" to={`/listquiz/${item.category.slug}`}>{item.category.name}</Link> / {item.name}</h6>
                 </div>
             </div>
             <div className="container mt-sm-5 my-1">

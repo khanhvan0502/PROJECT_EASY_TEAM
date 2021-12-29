@@ -83,7 +83,7 @@ function ViewItemQuiz(props) {
             </header>
             <div className="py-3 bg-warning">
                 <div className="container">
-                    <h6>DANH MỤC / {category.name}</h6>
+                    <h6 className="text-uppercase text-dark"><Link className="text-decoration-none text-dark" to="/listquiz">danh mục</Link> / {category.name}</h6>
                 </div>
             </div>
             <div className="container">

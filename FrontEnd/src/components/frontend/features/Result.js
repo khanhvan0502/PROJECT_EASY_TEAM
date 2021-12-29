@@ -145,13 +145,16 @@ function Result() {
     const result = CompareArray(correct, choiceNew);
 
     const percent = (result, length) => {
-        return (result / length) * 100;
+        if (length > 0)
+            return (result / length) * 100;
+        return '0';
     }
 
     // console.log(GetIdChoice(idchoice));
     // console.log(GetIdItem(quizId));
-    console.log(question);
-    console.log(choiceNew);
+    // console.log("day la cau hoi", question);
+    // console.log("day la nguoi dung chon", choiceNew);
+    // console.log("day la correct", correct);
 
     // Phần Modal
     const showFormAnswer = () => {
@@ -163,15 +166,32 @@ function Result() {
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 className="modal-title text-center" id="exampleModalLabel">Kết quả chi tiết</h5>
                                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                                     </div>
                                     <div className="modal-body">
-                                        ...
+                                        <ul>
+                                            {
+                                                correct.length === 0 ? <li className="mb-6 list-unstyled">Làm gà quá! Làm lại đi...</li> : correct.map((correct, i) =>
+                                                    <li key={i} className="mb-6 list-unstyled">
+                                                        <p className="p-3 mb-2 bg-secondary text-white"><strong>{i + 1}. {question[i]}</strong></p>
+                                                        <p className={correct === choiceNew[i] ? 'p-3 mb-2 bg-success text-white' : 'p-3 mb-2 bg-danger text-white'}>Bạn chọn: {choiceNew[i]}</p>
+                                                        {correct !== choiceNew[i] && <p className="p-3 mb-2 bg-primary text-white">Đáp án đúng: {correct}</p>}
+                                                    </li>
+                                                )
+                                                // correct.map((correct, i) => (
+                                                //     <li key={i} className="mb-6 list-unstyled">
+                                                //         <p className="p-3 mb-2 bg-secondary text-white"><strong>{i + 1}. {question[i]}</strong></p>
+                                                //         <p className={correct === choiceNew[i] ? 'p-3 mb-2 bg-success text-white' : 'p-3 mb-2 bg-danger text-white'}>Bạn chọn: {choiceNew[i]}</p>
+                                                //         {correct !== choiceNew[i] && <p className="p-3 mb-2 bg-primary text-white">Đáp án đúng: {correct}</p>}
+                                                //     </li>
+                                                // ))
+                                            }
+                                        </ul>
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-primary">Save changes</button>
+                                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        {/* <button type="button" className="btn btn-primary">Save changes</button> */}
                                     </div>
                                 </div>
                             </div>

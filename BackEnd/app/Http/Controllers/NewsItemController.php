@@ -23,8 +23,8 @@ class NewsItemController extends Controller
         $validator = Validator::make($request->all(), [
             'news_id' => 'required|max:250',
             'name' => 'required|max:250',
-            'slug' => 'required|max:30',
-            'description' => 'required|max:250',
+            'slug' => 'required|max:50',
+            'description' => 'required|max:1000',
             'time' => 'required|max:191',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -81,8 +81,8 @@ class NewsItemController extends Controller
         $validator = Validator::make($request->all(), [
             'news_id' => 'required|max:250',
             'name' => 'required|max:250',
-            'slug' => 'required|max:30',
-            'description' => 'required|max:250',
+            'slug' => 'required|max:50',
+            'description' => 'required|max:1000',
             'time' => 'required|max:191',
         ]);
 
@@ -119,9 +119,7 @@ class NewsItemController extends Controller
                     'status' => 200,
                     'message' => 'Cập nhật tin tức thành công!',
                 ]);
-            } 
-            else 
-            {
+            } else {
                 return response()->json([
                     'status' => 404,
                     'message' => 'Không tìm thấy!',
@@ -133,7 +131,7 @@ class NewsItemController extends Controller
     public function destroy($id)
     {
         $newsitem = NewsItem::find($id);
-        if ( $newsitem) {
+        if ($newsitem) {
             $newsitem->delete();
             return response()->json([
                 'status' => 200,

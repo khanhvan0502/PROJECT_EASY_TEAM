@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import Footer from "../../../layouts/frontend/Footer";
 
 function ViewNewsItem(props) {
 
@@ -52,7 +53,7 @@ function ViewNewsItem(props) {
                             <Link className="text-decoration-none" to={`${item.news.slug}/${item.slug}`}>
                                 <img src={`http://localhost:8000/${item.image}`} className="border" style={{ width: '100%', height: '200px' }} alt={item.name} />
                                 <div className="card-body">
-                                    <h5 className="text-center" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.name}</h5>
+                                    <h5 className="text-justify" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.name}</h5>
                                     <hr />
                                     <p className="text-justify" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '5', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.description}</p>
                                     {/* <textarea name="message" rows={5} cols={40} defaultValue={item.description} /> */}
@@ -88,12 +89,13 @@ function ViewNewsItem(props) {
                     <h6 className="text-uppercase"><Link className="text-decoration-none" style={{ color: 'black' }} to="/news">Danh mục</Link> / {news.name}</h6>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mb-5">
                 <div className="row">
                     {showNewsItemList}
                 </div>
             </div>
             <ScrollButton />
+            <Footer />
         </div>
     );
 }

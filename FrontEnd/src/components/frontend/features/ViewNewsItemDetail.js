@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import Footer from "../../../layouts/frontend/Footer";
 
 function ViewNewsItemDetail(props) {
 
@@ -53,24 +54,23 @@ function ViewNewsItemDetail(props) {
             </header>
             <div className="py-3 bg-warning mb-3">
                 <div className="container">
-                    <h6 className="text-uppercase"><Link className="text-decoration-none" style={{ color: 'black' }} to="/news">Danh mục</Link>/
-                    <Link className="text-decoration-none" style={{ color: 'black' }} to={`/news/${newsItem.news.slug}`}>{newsItem.news.name}</Link>/{newsItem.slug}</h6>
+                    <h6 className="text-uppercase"><Link className="text-decoration-none" style={{ color: 'black' }} to="/news">Danh mục</Link> / <Link className="text-decoration-none" style={{ color: 'black' }} to={`/news/${newsItem.news.slug}`}>{newsItem.news.name}</Link> /    {newsItem.slug}</h6>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mb-5">
                 <div className="row">
                     <div className="col-12">
                         <div className="card mb-3">
                             <Link className="text-decoration-none">
                                 <div className="row no-gutters">
                                     <div className="col-md-4">
-                                        <img src={`http://localhost:8000/${newsItem.image}`} className="card-img" alt={newsItem.name} />
+                                        <img src={`http://localhost:8000/${newsItem.image}`} style={{ width: '100%', height: '400px' }} className="card-img" alt={newsItem.name} />
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">
                                             <h5 className="card-title text-dark text-justify">{newsItem.name}</h5>
-                                            <p className="card-text text-dark text-justify">{newsItem.description}</p>
-                                            {/* <textarea className="card-text text-dark" name="message" rows={10} cols={100} defaultValue={newsItem.description} /> */}
+                                            {/* <p className="card-text text-dark text-justify">{newsItem.description}</p> */}
+                                            <textarea className="card-text text-dark text-justify" name="message" rows={15} cols={100} defaultValue={newsItem.description} />
                                             {/* <p className="card-text text-dark"><small className="text-muted">Last updated 3 mins ago</small></p> */}
                                         </div>
                                     </div>
@@ -82,6 +82,7 @@ function ViewNewsItemDetail(props) {
             </div>
             {/* {showNewsItemList} */}
             <ScrollButton />
+            <Footer />
         </div>
     );
 }

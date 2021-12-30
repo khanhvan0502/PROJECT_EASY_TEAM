@@ -6,7 +6,7 @@ import axios from "axios";
 const UserProfile = () => {
   const username =
     useLocation().pathname.split("/")[
-      useLocation().pathname.split("/").length - 1
+    useLocation().pathname.split("/").length - 1
     ];
   console.log(username);
   const [profileList, setProfileList] = useState([]);

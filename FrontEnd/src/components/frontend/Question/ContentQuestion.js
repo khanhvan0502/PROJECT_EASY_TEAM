@@ -12,7 +12,7 @@ function ContentQuestion() {
   const [questionId, setQuestionId] = useState("");
   const question_slug =
     useLocation().pathname.split("/")[
-      useLocation().pathname.split("/").length - 1
+    useLocation().pathname.split("/").length - 1
     ];
   useEffect(() => {
     axios.get(`/api/question/${question_slug}`).then((res) => {
@@ -40,9 +40,9 @@ function ContentQuestion() {
           className="breadcrumb"
           style={{ backgroundColor: "#fff", padding: "20px" }}
         >
-          <i className="fa fas fa-home">
+          <i className="fa fas fa-home" style={{ fontSize: '22px' }}>
             <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-              <b>Trang chủ</b>{" "}
+              &nbsp;<b>Trang chủ</b>{" "}
             </Link>
             /
             <b>
@@ -83,40 +83,39 @@ function ContentQuestion() {
           <div className="tag-question">
             <h6 style={{ marginRight: "60px" }}>Tags:</h6>
             <Link
-            style={{ textDecoration: "none" }}
-            to={`/question/tag/${item.tags.id}`}
+              style={{ textDecoration: "none" }}
+              to={`/question/tag/${item.tags.id}`}
             >
-            <p>{item.tags.name}</p>
+              <p>{item.tags.name}</p>
             </Link>
-            
+
           </div>
           <div className="question-footer">
             <div className="answer-count">
-              <h6>
-                <i className="fa fa-comment"></i> {item.comments_couter} câu trả
+              <h5>
+                <i className="fa fa-comment"></i> {item.comments_couter} Câu trả
                 lời
-              </h6>
+              </h5>
             </div>
             <div className="view-count">
-              <h6>
-                <i className="fa fa-eye"></i> {item.views_couter} lượt xem
-              </h6>
+              <h5>
+                <i className="fa fa-eye"></i> {item.views_couter} Lượt xem
+              </h5>
             </div>
             <div className="vote-count">
-              <h6>
-                <i className="fa fa-heart"></i>
-                {item.votes_couter} lượt bình chọn
-              </h6>
+              <h5>
+                <i className="fa fa-heart"></i> {item.votes_couter} Lượt bình chọn
+              </h5>
             </div>
-            <button className="question-btn-answer">Trả lời câu hỏi</button>
+            {/* <button className="question-btn-answer">Trả lời câu hỏi</button> */}
           </div>
           <hr></hr>
-          <div className="report-footer">
+          {/* <div className="report-footer">
             <div className="report-box">
               <i className="fa fa-flag-checkered"> Báo cáo</i>
             </div>
           </div>
-          <hr></hr>
+          <hr></hr> */}
         </div>
         <h4>Bình luận gần đây</h4>
 

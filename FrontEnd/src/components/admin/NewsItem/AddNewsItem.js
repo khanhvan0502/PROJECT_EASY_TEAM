@@ -119,7 +119,7 @@ function AddNewsItem() {
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label">Mô tả</label>
-                            <input type="text" name="description" onChange={handleInput} value={newsItemInput.description} className="form-control" />
+                            <textarea type="text" name="description" onChange={handleInput} value={newsItemInput.description} className="form-control" />
                             <small className="text-danger">{errorlist.description}</small>
                             <small className="text-danger"></small>
                         </div>

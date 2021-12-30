@@ -14,7 +14,7 @@ function Register() {
     email: "",
     password: "",
     phone: "",
-    role_as:"0",
+    role_as: "0",
     error_list: [],
   });
 
@@ -28,11 +28,11 @@ function Register() {
 
     const data = {
       fullname: registerInput.fullname,
-        username: registerInput.username,
+      username: registerInput.username,
       email: registerInput.email,
       password: registerInput.password,
-        phone: registerInput.phone,
-        role_as: registerInput.role_as,
+      phone: registerInput.phone,
+      role_as: registerInput.role_as,
     };
 
     axios.get("/sanctum/csrf-cookie").then((response) => {
@@ -74,15 +74,14 @@ function Register() {
             <div className="col-xl-6 offset-xl-3">
               <div className="text-box mt-5 mb-5">
                 <p className="mb-4">
-                  Fill out the form below to sign up for the service. Already
-                  signed up? Then just&nbsp;
+                  Điền vào biểu mẫu dưới đây để đăng ký dịch vụ. Đã đăng ký? Sau đó chỉ cần&nbsp;
                   <Link className="blue" to="/login">
-                    Log In
+                    đăng nhập
                   </Link>
                 </p>
                 <form onSubmit={registerSubmit}>
                   <div className="form-group mb-3">
-                    <label>Full Name</label>
+                    <label>Tên đầy đủ</label>
                     <input
                       type="text"
                       name="fullname"
@@ -93,7 +92,7 @@ function Register() {
                     <span>{registerInput.error_list.fullname}</span>
                   </div>
                   <div className="form-group mb-3">
-                    <label>Username</label>
+                    <label>Tên tài khoản</label>
                     <input
                       type="text"
                       name="username"
@@ -115,7 +114,7 @@ function Register() {
                     <span>{registerInput.error_list.email}</span>
                   </div>
                   <div className="form-group mb-3">
-                    <label>Password</label>
+                    <label>Mật khẩu</label>
                     <input
                       type="password"
                       name="password"
@@ -125,14 +124,14 @@ function Register() {
                     />
                     <span>{registerInput.error_list.password}</span>
                   </div>
-                    <div className="form-group mb-3">
-                    <label>Phone</label>
+                  <div className="form-group mb-3">
+                    <label>Số điện thoại</label>
                     <input
-                        type="text"
-                        name="phone"
-                        onChange={handleInput}
-                        value={registerInput.phone}
-                        className="form-control"
+                      type="text"
+                      name="phone"
+                      onChange={handleInput}
+                      value={registerInput.phone}
+                      className="form-control"
                     />
                     <span>{registerInput.error_list.phone}</span>
                   </div>
@@ -140,8 +139,9 @@ function Register() {
                     <button
                       type="submit"
                       className="form-control-submit-button"
+                      style={{ fontSize: '18px' }}
                     >
-                      Sign up
+                      Đăng ký
                     </button>
                   </div>
                 </form>

@@ -230,7 +230,7 @@ function Result() {
                                         Đáp án
                                     </button>
                                     <div className="col-1"></div>
-                                    <Link to="/listquiz" className="col btn btn-primary rounded-start">Làm lại</Link>
+                                    <Link to={`/listquiz`} className="col btn btn-primary rounded-start">Về danh mục</Link>
                                     <div className="col-1"></div>
                                 </div>
                             </div>

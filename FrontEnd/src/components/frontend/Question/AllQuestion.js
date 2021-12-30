@@ -23,10 +23,10 @@ const AllQuestion = () => {
       </header>
       {/* <SearchQuestion/> */}
 
-      <div className="main-container">
+      <div className="container">
         <button type="submit" className="btn-ask-question">
-          <Link to="/ask-question" style={{textDecoration:"none", color:"white"}}>
-          <i className="fas fa-plus-circle" style={{marginRight:"10px"}}></i>
+          <Link className="" to="/ask-question" style={{ textDecoration: "none", color: "white" }}>
+            <i className="fas fa-plus-circle" style={{ marginRight: "10px" }}></i>
             Đặt câu hỏi</Link>
         </button>
         {/* <div className="choice-question-box">
@@ -52,10 +52,9 @@ const AllQuestion = () => {
           </div>
         </div> */}
 
-        <ViewQuestion />
         {/* <MostView/> */}
       </div>
-
+      <ViewQuestion />
       <Footer />
     </div>
   );

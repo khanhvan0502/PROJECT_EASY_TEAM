@@ -24,8 +24,10 @@ function MostView() {
           </div>
         </div>
       </header>
-      <Filter/>
-      <div className="question-container">
+      <div className="container">
+        <Filter />
+      </div>
+      <div className="container">
         {question.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}

@@ -78,7 +78,7 @@ function ContentQuestion() {
             <h3>{item.title}</h3>
           </div>
           <div className="content-question">
-            <span>{item.content}</span>
+            <p>{item.content}</p>
           </div>
           <div className="tag-question">
             <h6 style={{ marginRight: "60px" }}>Tags:</h6>

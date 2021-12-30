@@ -55,8 +55,9 @@
     margin: 30px 0;
 }
 
-.content-question span {
-    font-size: 22px;
+.content-question p {
+    font-size: 20px;
+    text-align: justify;
 }
 
 .title-question{

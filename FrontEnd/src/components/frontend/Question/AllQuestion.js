@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../../../layouts/frontend/Navbar";
 import ViewQuestion from "./ViewQuestion";
 import MostView from "./MostView";
@@ -43,22 +43,21 @@ const AllQuestion = () => {
               placeholder="Bạn muốn hỏi gì"
               onChange={handleInput}
               value={inputSearch}
-              
+
             />
             <button
               className="btn search-btn"
               type="submit"
             >
               <Link to={`/question/search/${inputSearch}`}>
-
-              <i className="fas fa-search icon-btn" />
+                <i className="fas fa-search icon-btn" />
               </Link>
             </button>
           </div>
         </form>
       </div>
       {/* --------------------------------------------------- */}
-      <div className="main-container">
+      <div className="container">
         <button type="submit" className="btn-ask-question">
           <Link
             to="/ask-question"
@@ -72,9 +71,9 @@ const AllQuestion = () => {
           </Link>
         </button>
 
-        <Filter/>
+        <Filter />
 
-        <ViewQuestion />
+        {/* <ViewQuestion /> */}
       </div>
       <ViewQuestion />
       <Footer />

@@ -17,7 +17,7 @@ function ItemQuestion({
     created_at,
   },
 }) {
-  const [question, setQuestion] = useState({});
+  // const [question, setQuestion] = useState({});
   // const viewsCouter = useEffect(() => {
   //   axios.get(`/api/question/${slug}`).then((res) => {
   //     setQuestion(res.data);

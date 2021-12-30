@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import ItemQuestion from "./ItemQuestion";
 
-import SearchQuestion from "./SearchQuestion";
 import axios from "axios";
 function ViewQuestion() {
   const [question, setQuestion] = useState([]);
@@ -17,7 +16,6 @@ function ViewQuestion() {
   return (
     <div>
       
-      {/* <SearchQuestion/> */}
       
       <div className="container mb-5">
         {question.map((item) => (

@@ -91,7 +91,7 @@ class CommentController extends Controller
      */ 
     public function getCommentById($id){
         $question = Question::where('id', $id)->first();
-        $comments = Comment::where('question_id', $question->id)->get();
+        $comments = Comment::where('question_id', $question->id)->orderBy('created_at', 'DESC')->get();
         return response()->json([
             'status' => 200,
             'data' => $comments,

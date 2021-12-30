@@ -2,41 +2,39 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./SearchQuestion.css";
 import ItemQuestion from "./ItemQuestion";
+import { useLocation } from "react-router-dom";
 function SearchQuestion() {
-  const [searchInput, setSearchInput] = useState({
-    name: "",
-  });
-  const handleInput = (e) => {
-    e.persist();
-    setSearchInput({ ...setSearchInput, [e.target.name]: e.target.value });
-  };
-  const [searchQuestion, setSearchQuestion] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
+  const input =
+    useLocation().pathname.split("/")[
+      useLocation().pathname.split("/").length - 1
+    ];
+  console.log(input);
   useEffect(() => {
-    axios.get(`/api/question/search/${searchInput.name}`).then((res) => {
-      setSearchQuestion(res.data.data);
-      console.log(res.data.data);
+    axios.get(`/api/question/search/${input}`).then((res) => {
+      if(res.data.status === 400){
+        setQuestionList(res.data.data);
+        console.log(res.data.data);
+      }else{
+        setQuestionList(res.data.data);
+        console.log(res.data.data);
+      }
     });
   }, []);
 
   return (
-    <div className="container">
-      <form className="search-question-container">
-        <div className="input-group">
-          <input
-            name="query"
-            className="form-control search-input"
-            type="text"
-            placeholder="Bạn muốn hỏi gì"
-            onChange={handleInput}
-            value={searchInput.name}
-          />
-          <button className="btn search-btn" id="btnNavbarSearch" type="submit">
-            <i className="fas fa-search icon-btn" />
-          </button>
+    <div>
+      <header className="ex-header">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-10 offset-xl-1">
+              <h1 className="text-center">Tìm kiếm câu hỏi</h1>
+            </div>
+          </div>
         </div>
-      </form>
-      <div className="search-result">
-        {searchQuestion.map((item) => (
+      </header>
+      <div className="question-container">
+        {questionList.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}
       </div>

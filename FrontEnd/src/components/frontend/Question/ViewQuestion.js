@@ -17,7 +17,6 @@ function ViewQuestion() {
   return (
     <div>
       
-      {/* <SearchQuestion/> */}
       
       <div className="question-container">
         {question.map((item) => (

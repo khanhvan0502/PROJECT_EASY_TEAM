@@ -5,7 +5,7 @@ import axios from "axios";
 function MostView() {
   const [question, setQuestion] = useState([]);
   useEffect(() => {
-    axios.get(`api/hot-question`).then((res) => {
+    axios.get(`api/question/most-view`).then((res) => {
       if (res.data.status === 400) {
         setQuestion(res.data.data);
         console.log(res.data.data);

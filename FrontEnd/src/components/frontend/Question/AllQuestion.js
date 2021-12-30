@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../../../layouts/frontend/Navbar";
 import ViewQuestion from "./ViewQuestion";
 import MostView from "./MostView";
@@ -8,8 +8,16 @@ import { Link } from "react-router-dom";
 import "./AllQuestion.css";
 import SearchQuestion from "./SearchQuestion";
 const AllQuestion = () => {
+  const [inputSearch, setInputSearch] = useState("");
+  const handleInput = (e) => {
+    e.persist();
+    setInputSearch(e.target.value);
+
+  };
+
+
   return (
-    <div>
+    <>
       <Navbar />
 
       <header className="ex-header">
@@ -21,15 +29,49 @@ const AllQuestion = () => {
           </div>
         </div>
       </header>
-      {/* <SearchQuestion/> */}
 
+
+      {/* Search */}
+      <div className="container">
+        <form className="search-question-container">
+          <div className="input-group">
+            <input
+              name="query"
+              className="form-control search-input"
+              type="text"
+              placeholder="Bạn muốn hỏi gì"
+              onChange={handleInput}
+              value={inputSearch}
+              
+            />
+            <button
+              className="btn search-btn"
+              type="submit"
+            >
+              <Link to={`/question/search/${inputSearch}`}>
+
+              <i className="fas fa-search icon-btn" />
+              </Link>
+            </button>
+          </div>
+        </form>
+      </div>
+      {/* --------------------------------------------------- */}
       <div className="main-container">
         <button type="submit" className="btn-ask-question">
-          <Link to="/ask-question" style={{textDecoration:"none", color:"white"}}>
-          <i className="fas fa-plus-circle" style={{marginRight:"10px"}}></i>
-            Đặt câu hỏi</Link>
+          <Link
+            to="/ask-question"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <i
+              className="fas fa-plus-circle"
+              style={{ marginRight: "10px" }}
+            ></i>
+            Đặt câu hỏi
+          </Link>
         </button>
-        {/* <div className="choice-question-box">
+
+        <div className="choice-question-box">
           <div className="lastest-box">
             <div className="title-box">
               <h6>Mới nhất</h6>
@@ -37,6 +79,8 @@ const AllQuestion = () => {
           </div>
           <div className="most-view-box">
             <div className="title-box">
+              
+              
               <h6>Xem nhiều nhất</h6>
             </div>
           </div>
@@ -50,15 +94,13 @@ const AllQuestion = () => {
               <h6>Bình chọn nhiều nhất</h6>
             </div>
           </div>
-        </div> */}
+        </div>
 
         <ViewQuestion />
-        {/* <MostView/> */}
       </div>
 
       <Footer />
-    </div>
+    </>
   );
 };
-
 export default AllQuestion;

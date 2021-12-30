@@ -260,4 +260,8 @@ class QuestionController extends Controller
             ]);
         }
     }
+
+    // public function search($key){
+    //     return Question::where('title', 'LIKE', "%$key%")->get();
+    // }
 }

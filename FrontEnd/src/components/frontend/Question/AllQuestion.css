@@ -27,6 +27,10 @@
     color: #ffffff;
 }
 
+.search-question-container {
+    margin-left:  50px;
+}
+
 .btn-ask-question{
     width: 200px;
     height: 40px;

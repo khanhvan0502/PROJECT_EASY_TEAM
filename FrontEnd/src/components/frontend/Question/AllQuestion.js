@@ -98,7 +98,7 @@ const AllQuestion = () => {
 
         <ViewQuestion />
       </div>
-
+      <ViewQuestion />
       <Footer />
     </>
   );

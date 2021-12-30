@@ -32,27 +32,27 @@ function ItemQuestion({
       <div className="container-item-question">
         <div className="vote-box">
           <h5>
-            <b>{votes_couter}</b>
+            <b className="icon">{votes_couter}</b>
           </h5>
-          <p>votes</p>
+          <p>Votes</p>
         </div>
         <div className="answer-quality-box">
           <h5>
             <b>{comments_couter}</b>
           </h5>
-          <p>answers</p>
+          <p>Answers</p>
         </div>
         <div className="view-box">
           <h5>
             <b>{views_couter}</b>
           </h5>
-          <p>views</p>
+          <p>Views</p>
         </div>
         <div className="main-box">
           <div className="question-box">
             <h3>
               <Link
-                style={{ textDecoration: "none", color: "#f25c05" }}
+                style={{ textDecoration: "none", color: '#273239' }}
                 to={`/question/${slug}`}
               >
                 {title}
@@ -69,21 +69,21 @@ function ItemQuestion({
           </div>
           <div className="info-box">
             <i className="fas fa-folder-open">
-              <Link
-                style={{ textDecoration: "none", color: "#f25c05" }}
+              &nbsp;<Link
+                style={{ textDecoration: "none", color: '#273239' }}
                 to={`question/category/${category_question.id}`}
               >
                 {category_question.name}
               </Link>
             </i>
             <i className="fas fa-user">
-              <Link style={{ textDecoration: "none", color: "#f25c05" }}
+              &nbsp;<Link style={{ textDecoration: "none", color: '#273239' }}
                 to={`user/${user.username}`}>
-              {user.username}
+                {user.username}
               </Link>
-             </i>
+            </i>
             <i className="fas fa-calendar-alt">
-              asked {moment(created_at).fromNow(true)} ago
+              &nbsp;asked {moment(created_at).fromNow(true)} ago
             </i>
           </div>
         </div>

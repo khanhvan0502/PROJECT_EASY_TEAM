@@ -83,9 +83,9 @@ function ViewQuestion() {
           </div>
         </div>
       </header>
-      <div className="question-container">
-        <div className="hint">
-          <p>
+      <div className="container" style={{ fontSize: '30px' }}>
+        <div className="row">
+          <p className="text-center" style={{ fontSize: '18px' }}>
             {" "}
             Hãy đặt câu hỏi phỏng vấn liên quan đến công việc của bạn sắp tới.
             Lưu ý,{" "}
@@ -100,7 +100,7 @@ function ViewQuestion() {
             là thành phần bắt buộc
           </p>
         </div>
-        <div className="main-form">
+        <div className="row">
           <form onSubmit={submitQuestion} encType="multipart/form-data">
             <div className="form-group">
               <label>
@@ -115,6 +115,7 @@ function ViewQuestion() {
                 </b>
               </label>
               <input
+                style={{ fontSize: '18px' }}
                 type="text"
                 name="title"
                 onChange={handleInput}
@@ -125,7 +126,7 @@ function ViewQuestion() {
             </div>
 
             <div className="note">
-              <p>
+              <p style={{ fontSize: '18px' }}>
                 Vui lòng đặt tiêu đề thích hợp cho câu hỏi để người khác được
                 trả lời dễ dàng hơn.
               </p>
@@ -145,6 +146,7 @@ function ViewQuestion() {
               </label>
               <div className="category-container">
                 <select
+                  style={{ fontSize: '18px' }}
                   name="category_question_id"
                   onChange={handleInput}
                   value={questionInput.category_question_id}
@@ -159,20 +161,21 @@ function ViewQuestion() {
                     );
                   })}
                 </select>
-   
+
               </div>
             </div>
-            <p>Vui lòng chọn danh mục thích hợp</p>
+            <p style={{ fontSize: '18px' }}>Vui lòng chọn danh mục thích hợp</p>
             {/* End create category */}
             <div class="form-group">
               <label for="">Nội dung</label>
               <textarea
+                style={{ fontSize: '18px' }}
                 class="form-control"
                 name="content"
                 onChange={handleInput}
                 value={questionInput.content}
                 rows="3"
-                placeholder="Nội dung/Đoạn code"
+                placeholder="nhập nội dung"
               ></textarea>
               {/* <JoditEditor
                 ref={editor}
@@ -183,7 +186,7 @@ function ViewQuestion() {
                 onChange={(newContent) => {}}
               /> */}
             </div>
-            <p>Bạn có thể không nhập nội dung</p>
+            <p style={{ fontSize: '18px' }}>Bạn có thể không nhập nội dung</p>
             {/* Create a tag*/}
             <div className="form-group">
               <label>
@@ -204,7 +207,7 @@ function ViewQuestion() {
                   value={questionInput.tag_id}
                   className="form-control"
                 >
-                  <option>Chọn tag</option>
+                  <option style={{ fontSize: '18px' }}>Chọn tag</option>
                   {tagList.map((item) => {
                     return (
                       <option key={item.id} value={item.id}>
@@ -213,14 +216,14 @@ function ViewQuestion() {
                     );
                   })}
                 </select>
-                
+
               </div>
             </div>
-            <p>Vui lòng chọn tag phù hợp với câu hỏi</p>
+            <p style={{ fontSize: '18px' }}>Vui lòng chọn tag phù hợp với câu hỏi</p>
             {/* End create a tag*/}
             {/* Create a ask question button*/}
             <div className="form-group">
-              <button type="submit" className="form-control-submit-button">
+              <button type="submit" className="form-control-submit-button" style={{ fontSize: '24px' }}>
                 Đặt câu hỏi
               </button>
             </div>

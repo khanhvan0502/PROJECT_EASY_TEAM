@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Tag;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -67,7 +68,7 @@ class TagController extends Controller
         } else {
             $tag = new Tag;
             $tag->name = $request->name;
-            $tag->slug = str_slug($request->name);
+            $tag->slug = Str::slug($request->name);
             $tag->save();
             return response()->json([
                 'status' => 200,

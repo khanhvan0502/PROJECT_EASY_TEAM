@@ -13,12 +13,12 @@ function ViewQuestion() {
       }
     });
   }, []);
-  console.log("Question data:", question);
+  
   return (
     <div>
       
       
-      <div className="question-container">
+      <div className="container mb-5">
         {question.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}

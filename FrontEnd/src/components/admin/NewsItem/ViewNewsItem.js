@@ -82,7 +82,7 @@ function ViewNewsItem() {
             <div className="card mt-4">
                 <div className="card-header">
                     <h4>View NewsItem
-                        <Link to="/admin/add-item-quiz" className="btn btn-primary btn-sm float-end text-decoration-none">Add NewsItem</Link>
+                        <Link to="/admin/add-news-item" className="btn btn-primary btn-sm float-end text-decoration-none">Add NewsItem</Link>
                     </h4>
                 </div>
                 <div className="card-body">

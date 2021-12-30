@@ -60,7 +60,7 @@ function Login() {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-10 offset-xl-1">
-                            <h1 className="text-center">Log In</h1>
+                            <h1 className="text-center">Đăng nhập</h1>
                         </div>
                     </div>
                 </div>
@@ -72,17 +72,16 @@ function Login() {
                     <div className="row">
                         <div className="col-xl-6 offset-xl-3">
                             <div className="text-box mt-5 mb-5">
-                                <p className="mb-4">You don't have a password? Then please <Link className="blue" to="/register">Sign
-                                    Up</Link></p>
+                                <p className="mb-4">Bạn không có tài khoản? Vui lòng <Link className="blue" to="/register">đăng ký</Link></p>
                                 {/* Log In Form */}
                                 <form onSubmit={loginSubmit}>
                                     <div className="mb-4 form-group">
-                                        <label>Email ID</label>
+                                        <label>Email</label>
                                         <input type="email" name="email" onChange={handleInput} value={loginInput.email} className="form-control" />
                                         <span>{loginInput.error_list.email}</span>
                                     </div>
                                     <div className="mb-4 form-group">
-                                        <label>Password</label>
+                                        <label>Mật khẩu</label>
                                         <input type="password" name="password" onChange={handleInput} value={loginInput.password} className="form-control" />
                                         <span>{loginInput.error_list.password}</span>
                                     </div>
@@ -92,7 +91,7 @@ function Login() {
                                             Conditions</a></label>
                                     </div> */}
                                     <div className="form-group mb-3">
-                                        <button type="submit" className="form-control-submit-button">Log in</button>
+                                        <button type="submit" className="form-control-submit-button" style={{ fontSize: '18px' }}>Đăng nhập</button>
                                     </div>
                                 </form>
                             </div>

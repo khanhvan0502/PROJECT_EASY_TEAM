@@ -1,6 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .hint{
     text-align: center;
-    
 }
 .main-form{
     width: 800px;

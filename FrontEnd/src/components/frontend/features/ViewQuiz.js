@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import swal from "sweetalert";
 import ScrollButton from "../../../layouts/frontend/ScrollButton";
 import './ViewQuiz.css';
+import Footer from "../../../layouts/frontend/Footer";
 
 function ViewQuiz(props) {
 
@@ -114,7 +115,7 @@ function ViewQuiz(props) {
                     <h6 className="text-uppercase text-dark"><Link className="text-decoration-none text-dark" to="/listquiz">danh mục</Link> / <Link className="text-decoration-none text-dark" to={`/listquiz/${item.category.slug}`}>{item.category.name}</Link> / {item.name}</h6>
                 </div>
             </div>
-            <div className="container mt-sm-5 my-1">
+            <div className="container mt-sm-5 my-1 mb-5">
                 <div className="row">
                     <div className="col-sm-3">
                     </div>
@@ -138,6 +139,7 @@ function ViewQuiz(props) {
                 </div>
             </div>
             <ScrollButton />
+            <Footer />
         </div>
     )
 }

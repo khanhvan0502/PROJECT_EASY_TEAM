@@ -2,7 +2,8 @@ import ScrollButton from "../../../layouts/frontend/ScrollButton";
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import php from './php.png';
+import newImage from './news.jpg';
+import Footer from "../../../layouts/frontend/Footer";
 
 function ViewNews() {
 
@@ -31,14 +32,14 @@ function ViewNews() {
         var showNewsList = '';
         showNewsList = news.map((item) => {
             return (
-                <div className="col-md-3" key={item.id}>
+                <div className="col-md-4" key={item.id}>
                     <div className="card">
                         <Link className="text-decoration-none" to={`news/${item.slug}`}>
-                            <img src={php} style={{ width: '100%', height: '280px' }} alt={item.name} />
+                            <img src={newImage} style={{ width: '100%', height: '250px' }} alt={item.name} />
                             <hr />
                             <div className="card-body">
                                 <h5 className="card-title text-center text-dark">{item.name}</h5>
-                                <p className="card-text text-dark">{item.description}</p>
+                                <p className="card-text text-dark" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.description}</p>
                             </div>
                         </Link>
                     </div>
@@ -63,12 +64,13 @@ function ViewNews() {
                     <h6 className="text-uppercase">Danh mục</h6>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mb-5">
                 <div className="row row-cols-1 row-cols-md-4 g-4 mt-5">
                     {showNewsList}
                 </div>
             </div>
             <ScrollButton />
+            <Footer />
         </div>
     );
 }

@@ -26,6 +26,11 @@
 .vote-box{
     border: 1px solid green;
 }
+
+.vote-box h5,.answer-quality-box h5,.view-box h5 {
+    margin-bottom: 0;
+}
+
 .vote-box p, .vote-box h5{
     color: green;
 }
@@ -70,3 +75,7 @@
     margin-right: 30px;
 }
 
+.vote-box .icon{
+    padding-top: -5px !important;
+    /* margin-top: 0 !important; */
+}

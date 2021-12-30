@@ -6,6 +6,7 @@ use App\Models\CategoryQuestion;
 use App\Models\CategoryQuiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryQuestionController extends Controller
 {
@@ -67,7 +68,7 @@ class CategoryQuestionController extends Controller
         } else {
             $categoryQuestion = new CategoryQuestion;
             $categoryQuestion->name = $request->name;
-            $categoryQuestion->slug = str_slug($request->name);
+            $categoryQuestion->slug = Str::slug($request->name);
             $categoryQuestion->save();
             return response()->json([
                 'status' => 200,

@@ -36,7 +36,7 @@ function Search() {
                         dataNew.length > 0 ?
                             dataNew.map((item) => {
                                 return (
-                                    <div className="col-md-3 mb-3" key={item.id}>
+                                    <Link className="col-md-3 mb-3 text-decoration-none" to="/listquiz" key={item.id}>
                                         <div className="card">
                                             <img src={`http://localhost:8000/${item.image}`} style={{ width: '100%', height: '200px' }} alt={item.name} />
                                             <hr />
@@ -45,10 +45,10 @@ function Search() {
                                                 <p className="card-text">{item.description}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })
-                        : <h2>Search Item</h2>
+                            : <h2>Search Item</h2>
                     }
                 </div>
             </div>

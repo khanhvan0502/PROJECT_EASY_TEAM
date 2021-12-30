@@ -1,3 +1,4 @@
+
 .choice-question-box{
     border-bottom: 2px solid #f25c05;
     width: 1000px;
@@ -34,9 +35,8 @@
     border-radius: 16px;
     border: none;
     font-size: 20px;
-    margin-left: 850px;
+    margin-left: 50px;
     margin-top: 20px;
-    
 }
 .btn-ask-question:hover{
     background-color: coral;

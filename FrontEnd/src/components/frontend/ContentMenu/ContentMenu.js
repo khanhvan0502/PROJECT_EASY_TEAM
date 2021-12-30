@@ -7,7 +7,7 @@ class ContentMenu extends Component {
     render() {
         return (
             <div>
-                <Statistical/>
+                {/* <Statistical/> */}
                 <Tips/>
                 {/* <Testimonials/> */}
                 <FAQ/>

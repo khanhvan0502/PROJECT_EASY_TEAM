@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import ScrollButton from "../../../layouts/frontend/ScrollButton";
+import Footer from "../../../layouts/frontend/Footer";
 
 function ViewItemQuiz(props) {
 
@@ -86,12 +87,13 @@ function ViewItemQuiz(props) {
                     <h6 className="text-uppercase text-dark"><Link className="text-decoration-none text-dark" to="/listquiz">danh mục</Link> / {category.name}</h6>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mb-5">
                 <div className="row row-cols-1 row-cols-md-4 g-4 mt-5">
                     {showItemList}
                 </div>
             </div>
             <ScrollButton />
+            <Footer />
         </div>
     )
 }

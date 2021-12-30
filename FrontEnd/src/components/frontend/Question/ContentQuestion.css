@@ -54,6 +54,11 @@
 .title-question,.content-question, .tag-question{
     margin: 30px 0;
 }
+
+.content-question span {
+    font-size: 22px;
+}
+
 .title-question{
     font-size: 30px;
     font-weight: bold;

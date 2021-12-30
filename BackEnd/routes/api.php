@@ -121,7 +121,7 @@ Route::post('user/{username}/change-password', [UserController::class, 'changePa
 Route::get('get-all-question', [QuestionController::class, 'getAllQuestions']);
 Route::get('question/search/{key}', [QuestionController::class, 'search']);
 Route::get('question/{slug}/', [QuestionController::class, 'show']);
-Route::get('question/most-view', [QuestionController::class, 'mostView']);
+Route::get('questions/most-view', [QuestionController::class, 'mostView']);
 Route::post('question/save-comments-couter', [QuestionController::class, 'saveCommentsCouter']);
 Route::post('question/save-votes', [QuestionController::class, 'votes']);
 Route::get('question/tag/{id}', [QuestionController::class, 'getQuestionByTag']);

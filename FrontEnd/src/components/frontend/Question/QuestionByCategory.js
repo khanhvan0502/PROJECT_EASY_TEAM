@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import ItemQuestion from "./ItemQuestion";
 import { useLocation } from "react-router-dom";
-import SearchQuestion from "./SearchQuestion";
 import axios from "axios";
 import Footer from "../../../layouts/frontend/Footer";
 function QuestionByCategory() {

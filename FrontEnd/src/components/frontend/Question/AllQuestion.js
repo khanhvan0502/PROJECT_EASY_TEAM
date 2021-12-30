@@ -6,7 +6,8 @@ import Footer from "../../../layouts/frontend/Footer";
 
 import { Link } from "react-router-dom";
 import "./AllQuestion.css";
-import SearchQuestion from "./SearchQuestion";
+import SearchResult from "./SearchResult";
+import Filter from "./Filter";
 const AllQuestion = () => {
   const [inputSearch, setInputSearch] = useState("");
   const handleInput = (e) => {
@@ -71,30 +72,7 @@ const AllQuestion = () => {
           </Link>
         </button>
 
-        <div className="choice-question-box">
-          <div className="lastest-box">
-            <div className="title-box">
-              <h6>Mới nhất</h6>
-            </div>
-          </div>
-          <div className="most-view-box">
-            <div className="title-box">
-              
-              
-              <h6>Xem nhiều nhất</h6>
-            </div>
-          </div>
-          <div className="most-answer-box">
-            <div className="title-box">
-              <h6>Trả lời nhiều nhất</h6>
-            </div>
-          </div>
-          <div className="most-vote-box">
-            <div className="title-box">
-              <h6>Bình chọn nhiều nhất</h6>
-            </div>
-          </div>
-        </div>
+        <Filter/>
 
         <ViewQuestion />
       </div>

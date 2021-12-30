@@ -3,7 +3,7 @@ import axios from "axios";
 import "./SearchQuestion.css";
 import ItemQuestion from "./ItemQuestion";
 import { useLocation } from "react-router-dom";
-function SearchQuestion() {
+function SearchResult() {
   const [questionList, setQuestionList] = useState([]);
   const input =
     useLocation().pathname.split("/")[
@@ -42,4 +42,4 @@ function SearchQuestion() {
   );
 }
 
-export default SearchQuestion;
+export default SearchResult;

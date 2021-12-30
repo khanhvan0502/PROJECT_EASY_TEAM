@@ -50,6 +50,16 @@ class QuestionController extends Controller
         ]);
     }
 
+    // public function mostComment(){
+    //     $questions = Question::orderBy('comments_couter', 'desc')->get();
+
+    //     return response()->json([
+    //         'status' => 400,
+    //         'data' => $questions,
+    //         'message' => 'Success to get all category question'
+    //     ]);
+    // }
+
     /**
      * Save comments_couter
      * @param  Request $request
@@ -261,7 +271,5 @@ class QuestionController extends Controller
         }
     }
 
-    // public function search($key){
-    //     return Question::where('title', 'LIKE', "%$key%")->get();
-    // }
+    
 }

@@ -20,7 +20,8 @@ import Result from "../components/frontend/features/Result";
 import UserProfile from "../components/frontend/User/UserProfile";
 import ChangePassword from "../components/frontend/User/ChangePassword";
 import EditUserProfile from "../components/frontend/User/EditUserProfile";
-import SearchQuestion from "../components/frontend/Question/SearchQuestion";
+import SearchResult from "../components/frontend/Question/SearchResult";
+import MostView from "../components/frontend/Question/MostView";
 
 
 const publicRoutesList = [
@@ -40,7 +41,7 @@ const publicRoutesList = [
     { path: '/question', exact: true, name: 'Question', component: AllQuestion },
     { path: '/ask-question', exact: true, name: 'AskQuestion', component: AskQuestion },
     { path: '/question/:slug', exact: true, name: 'ContentQuestion', component: ContentQuestion },
-    { path: '/question/search/:key', exact:true, name: 'SearchQuestion', component: SearchQuestion },
+    { path: '/question/search/:key', exact:true, name: 'SearchResult', component: SearchResult },
     { path: '/question/tag/:id', exact: true, name: 'QuestionByTag', component: QuestionByTag },
     { path: '/question/category/:id', exact: true, name: 'QuestionByCategory', component: QuestionByCategory },
     { path: '/user/:username', exact: true, name: 'User'  },
@@ -48,6 +49,7 @@ const publicRoutesList = [
     { path: '/user/:username', exact: true, name: 'User', component: UserProfile  },
     { path: '/user/:username/change-password', exact: true, name: 'ChangePassword', component: ChangePassword  },
     { path: '/user/:username/edit', exact: true, name: 'EditUser', component: EditUserProfile  },
+    { path: '/questions/most-view', exact: true, name: 'MostView', component: MostView },
     
 
 ];

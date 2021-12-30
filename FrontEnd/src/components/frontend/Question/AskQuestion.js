@@ -6,7 +6,6 @@ import Footer from "../../../layouts/frontend/Footer";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
-import AddTag from "../Tag/AddTag";
 function ViewQuestion() {
 
 

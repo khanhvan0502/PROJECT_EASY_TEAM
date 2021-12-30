@@ -22,6 +22,8 @@ import ChangePassword from "../components/frontend/User/ChangePassword";
 import EditUserProfile from "../components/frontend/User/EditUserProfile";
 import SearchResult from "../components/frontend/Question/SearchResult";
 import MostView from "../components/frontend/Question/MostView";
+import MostComment from "../components/frontend/Question/MostComment";
+import MostVote from "../components/frontend/Question/MostVote";
 
 
 const publicRoutesList = [
@@ -50,6 +52,8 @@ const publicRoutesList = [
     { path: '/user/:username/change-password', exact: true, name: 'ChangePassword', component: ChangePassword  },
     { path: '/user/:username/edit', exact: true, name: 'EditUser', component: EditUserProfile  },
     { path: '/questions/most-view', exact: true, name: 'MostView', component: MostView },
+    { path: '/questions/most-comment', exact: true, name: 'MostComment', component: MostComment },
+    { path: '/questions/most-vote', exact: true, name: 'MostVote', component: MostVote },
     
 
 ];

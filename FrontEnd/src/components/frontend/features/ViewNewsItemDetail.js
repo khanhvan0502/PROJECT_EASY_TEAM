@@ -53,7 +53,8 @@ function ViewNewsItemDetail(props) {
             </header>
             <div className="py-3 bg-warning mb-3">
                 <div className="container">
-                    <h6 className="text-uppercase"><Link className="text-decoration-none" style={{ color: 'black' }} to="/news">Danh mục</Link>/<Link className="text-decoration-none" style={{ color: 'black' }} to={`/news/${newsItem.slug}`}>{newsItem.news.name}</Link>/{newsItem.name}</h6>
+                    <h6 className="text-uppercase"><Link className="text-decoration-none" style={{ color: 'black' }} to="/news">Danh mục</Link>/
+                    <Link className="text-decoration-none" style={{ color: 'black' }} to={`/news/${newsItem.news.slug}`}>{newsItem.news.name}</Link>/{newsItem.slug}</h6>
                 </div>
             </div>
             <div className="container">
@@ -67,8 +68,9 @@ function ViewNewsItemDetail(props) {
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">
-                                            <h5 className="card-title text-dark">{newsItem.name}</h5>
-                                            <p className="card-text text-dark">{newsItem.description}</p>
+                                            <h5 className="card-title text-dark text-justify">{newsItem.name}</h5>
+                                            <p className="card-text text-dark text-justify">{newsItem.description}</p>
+                                            {/* <textarea className="card-text text-dark" name="message" rows={10} cols={100} defaultValue={newsItem.description} /> */}
                                             {/* <p className="card-text text-dark"><small className="text-muted">Last updated 3 mins ago</small></p> */}
                                         </div>
                                     </div>

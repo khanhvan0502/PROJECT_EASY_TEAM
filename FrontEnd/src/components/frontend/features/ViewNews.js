@@ -38,7 +38,7 @@ function ViewNews() {
                             <hr />
                             <div className="card-body">
                                 <h5 className="card-title text-center text-dark">{item.name}</h5>
-                                <p className="card-text text-dark">{item.description}</p>
+                                <p className="card-text text-dark" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.description}</p>
                             </div>
                         </Link>
                     </div>

@@ -47,14 +47,15 @@ function ViewNewsItem(props) {
         if (newsItemCount) {
             showNewsItemList = newsItem.map((item, idx) => {
                 return (
-                    <div className="col-md-4" key={idx}>
+                    <div className="col-md-4 mb-3" key={idx}>
                         <div className="card">
                             <Link className="text-decoration-none" to={`${item.news.slug}/${item.slug}`}>
                                 <img src={`http://localhost:8000/${item.image}`} className="border" style={{ width: '100%', height: '200px' }} alt={item.name} />
                                 <div className="card-body">
-                                    <h5 className="text-center">{item.name}</h5>
+                                    <h5 className="text-center" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.name}</h5>
                                     <hr />
-                                    <p className="text-center">{item.description}</p>
+                                    <p className="text-justify" style={{ width: '100%', whiteSpace: 'pre-wrap', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: '5', WebkitBoxOrient: 'vertical', display: '-webkit-box' }}>{item.description}</p>
+                                    {/* <textarea name="message" rows={5} cols={40} defaultValue={item.description} /> */}
                                 </div>
                             </Link>
                         </div>

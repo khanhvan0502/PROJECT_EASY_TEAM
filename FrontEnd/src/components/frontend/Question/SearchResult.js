@@ -3,19 +3,21 @@ import axios from "axios";
 import "./SearchQuestion.css";
 import ItemQuestion from "./ItemQuestion";
 import { useLocation } from "react-router-dom";
+import Footer from "../../../layouts/frontend/Footer";
+import ScrollButton from "../../../layouts/frontend/ScrollButton";
 function SearchResult() {
   const [questionList, setQuestionList] = useState([]);
   const input =
     useLocation().pathname.split("/")[
-      useLocation().pathname.split("/").length - 1
+    useLocation().pathname.split("/").length - 1
     ];
   console.log(input);
   useEffect(() => {
     axios.get(`/api/question/search/${input}`).then((res) => {
-      if(res.data.status === 400){
+      if (res.data.status === 400) {
         setQuestionList(res.data.data);
         console.log(res.data.data);
-      }else{
+      } else {
         setQuestionList(res.data.data);
         console.log(res.data.data);
       }
@@ -33,11 +35,13 @@ function SearchResult() {
           </div>
         </div>
       </header>
-      <div className="question-container">
+      <div className="container">
         {questionList.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}
       </div>
+      <ScrollButton />
+      <Footer />
     </div>
   );
 }

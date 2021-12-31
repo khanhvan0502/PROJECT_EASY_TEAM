@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ItemQuestion from "./ItemQuestion";
 import axios from "axios";
 import Filter from "./Filter";
+import Footer from "../../../layouts/frontend/Footer";
+import ScrollButton from "../../../layouts/frontend/ScrollButton";
 function MostVote() {
   const [question, setQuestion] = useState([]);
   useEffect(() => {
@@ -23,13 +25,15 @@ function MostVote() {
           </div>
         </div>
       </header>
-      
+
       <div className="container">
-      <Filter/>
+        <Filter />
         {question.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}
       </div>
+      <ScrollButton />
+      <Footer />
     </div>
   );
 }

@@ -144,7 +144,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/search">
-                  Search
+                  Tìm kiếm
                 </Link>
               </li>
               {/* <li className="nav-item">

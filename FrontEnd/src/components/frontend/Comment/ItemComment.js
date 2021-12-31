@@ -26,7 +26,7 @@ function ItemComment({
       </div>
       <div className="comment-main">
         <div className="comment-content">
-          <span style={{ fontSize: '20px' }}>{content}</span>
+          <p className="text-justify" style={{ fontSize: '20px' }}>{content}</p>
           {/* <textarea className="card-text text-dark text-justify" name="message" rows={15} cols={100} defaultValue={content} /> */}
         </div>
         <div className="comment-name">

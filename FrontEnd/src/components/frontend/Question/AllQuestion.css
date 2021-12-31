@@ -1,10 +1,9 @@
-
 .choice-question-box{
     border-bottom: 2px solid #f25c05;
     width: 1000px;
     height: 45px;
     margin-left: 50px;
-    margin-top: 60px;
+    margin-top: 30px;
 
 }
 .lastest-box, .most-view-box, .most-answer-box, .most-vote-box{
@@ -28,7 +27,7 @@
 }
 
 .search-question-container {
-    margin-left:  50px;
+    margin-left: 50px !important;
 }
 
 .btn-ask-question{

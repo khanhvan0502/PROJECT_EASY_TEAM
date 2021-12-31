@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import "./AllQuestion.css";
 import SearchResult from "./SearchResult";
 import Filter from "./Filter";
+import ScrollButton from "../../../layouts/frontend/ScrollButton";
 const AllQuestion = () => {
   const [inputSearch, setInputSearch] = useState("");
   const handleInput = (e) => {
@@ -40,10 +41,9 @@ const AllQuestion = () => {
               name="query"
               className="form-control search-input"
               type="text"
-              placeholder="Bạn muốn hỏi gì"
+              placeholder="Tìm kiếm..."
               onChange={handleInput}
               value={inputSearch}
-
             />
             <button
               className="btn search-btn"
@@ -74,6 +74,7 @@ const AllQuestion = () => {
         <Filter />
       </div>
       <ViewQuestion />
+      <ScrollButton />
       <Footer />
     </>
   );

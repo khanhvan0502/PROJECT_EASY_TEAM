@@ -23,7 +23,7 @@ function Search() {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-10 offset-xl-1">
-                            <h1 className="text-center">SEARCH...</h1>
+                            <h1 className="text-center">Tìm kiếm</h1>
                         </div>
                     </div>
                 </div>

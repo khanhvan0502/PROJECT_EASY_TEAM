@@ -3,6 +3,8 @@ import ItemQuestion from "./ItemQuestion";
 import axios from "axios";
 
 import Filter from "./Filter";
+import Footer from "../../../layouts/frontend/Footer";
+import ScrollButton from "../../../layouts/frontend/ScrollButton";
 function MostView() {
   const [question, setQuestion] = useState([]);
   useEffect(() => {
@@ -32,6 +34,8 @@ function MostView() {
           <ItemQuestion key={item.id} question={item} />
         ))}
       </div>
+      <ScrollButton />
+      <Footer />
     </div>
   );
 }

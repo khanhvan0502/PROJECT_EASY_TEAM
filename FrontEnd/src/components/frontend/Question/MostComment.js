@@ -23,8 +23,9 @@ function MostComment() {
           </div>
         </div>
       </header>
+      
+      <div className="container">
       <Filter/>
-      <div className="question-container">
         {question.map((item) => (
           <ItemQuestion key={item.id} question={item} />
         ))}

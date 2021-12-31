@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../../../layouts/frontend/Footer";
 import "./styles.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 const UserProfile = () => {
   const username =
@@ -32,10 +32,12 @@ const UserProfile = () => {
             <div className="full-name">
               <h4>{item.fullname}</h4>
             </div>
+            <Link to={`/user/${username}/change-password`}>
             <i
               className="fas fa-edit"
               style={{ fontSize: "30px", marginTop: "20px" }}
             />
+            </Link>
           </div>
         </div>
         <div className="right-container">
@@ -78,6 +80,12 @@ const UserProfile = () => {
       </header>
 
       {showProfile}
+      
+      {/* <div className="container">
+      <hr></hr>
+      <h3>Câu hỏi đã đặt</h3>
+      </div> */}
+      
       <Footer />
     </>
   );

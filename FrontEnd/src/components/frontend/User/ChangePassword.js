@@ -4,7 +4,7 @@ import "./styles.css";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
-
+import { Link } from "react-router-dom";
 const ChangePassword = () => {
   const username =
     useLocation().pathname.split("/")[
@@ -63,10 +63,12 @@ const ChangePassword = () => {
               <div className="full-name">
                 <h4>{item.fullname}</h4>
               </div>
+              <Link to={`/user/${username}`}>
               <i
-                className="fas fa-edit"
+                className="fas fa-user"
                 style={{ fontSize: "30px", marginTop: "20px" }}
               />
+              </Link>
             </div>
           </div>
           <div className="right-container">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemQuestion from "./ItemQuestion";
 import axios from "axios";
-import SearchResult from "./SearchResult";
+
 import Filter from "./Filter";
 function MostView() {
   const [question, setQuestion] = useState([]);

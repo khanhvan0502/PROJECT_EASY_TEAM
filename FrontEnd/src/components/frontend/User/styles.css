@@ -39,9 +39,7 @@
     height: 40px;
     border: 1px solid thistle;
 }
-.old-password:focus, .new-password:focus, .confirm-password:focus{
-    border: 1px solid #00bfff;
-}
+
 .btn-change-password {
     width: 400px;
 }

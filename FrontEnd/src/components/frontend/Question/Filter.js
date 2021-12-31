@@ -20,24 +20,20 @@ const Filter = () => {
           </div>
           <div className="most-answer-box">
             <div className="title-box">
-              <Link to={`/questions/most-comment`}>
+              <Link className='text-decoration-none' to={`/questions/most-comment`}>
               <h6>Bình luận nhiều nhất</h6>
               </Link>
             </div>
           </div>
           <div className="most-vote-box">
             <div className="title-box">
-              <Link to={`/questions/most-vote`}>
+              <Link className='text-decoration-none' to={`/questions/most-vote`}>
               <h6>Bình chọn nhiều nhất</h6>
               </Link>
             </div>
           </div>
         </div>
-        <div className="most-vote-box">
-          <div className="title-box">
-            <h6>Bình chọn nhiều nhất</h6>
-          </div>
-        </div>
+       
       </div>
     
   )

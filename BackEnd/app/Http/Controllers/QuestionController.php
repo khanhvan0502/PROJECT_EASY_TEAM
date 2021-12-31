@@ -191,6 +191,24 @@ class QuestionController extends Controller
         }
     }
 
+    // // get all quesion by user
+    // public function getQuestionByUser($id){
+    //     $username = User::find($id)->username;
+    //     $questions = Question::where('user_id', $id)->get();
+    //     if (count($questions) > 0) {
+    //         return response()->json([
+    //             'status' => 400,
+    //             'data' => $questions,
+    //             'message' => 'Success to get all questions by user'
+    //         ]);
+    //     }else{
+    //         return response()->json([
+    //             'status' => 400,
+    //             'message' => 'No questions found'
+    //         ]);
+    //     }
+    // }
+
     
 
     
@@ -285,5 +303,6 @@ class QuestionController extends Controller
         }
     }
 
+    
     
 }

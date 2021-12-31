@@ -128,6 +128,7 @@ Route::post('question/save-comments-couter', [QuestionController::class, 'saveCo
 Route::post('question/save-votes', [QuestionController::class, 'votes']);
 Route::get('question/tag/{id}', [QuestionController::class, 'getQuestionByTag']);
 Route::get('question/category/{id}', [QuestionController::class, 'getQuestionByCategory']);
+// Route::get('question/user/{id}', [QuestionController::class, 'getQuestionByUser']);
 
 Route::get('get-all-category-question', [CategoryQuestionController::class, 'getAllCategoryQuestion']);
 

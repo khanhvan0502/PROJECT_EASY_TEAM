@@ -72,8 +72,6 @@ const AllQuestion = () => {
         </button>
 
         <Filter />
-
-        {/* <ViewQuestion /> */}
       </div>
       <ViewQuestion />
       <Footer />
